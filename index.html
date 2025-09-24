@@ -2,113 +2,93 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website CMPhanThiết</title>
+  <title>Website CMPhanThiet</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
+      margin: 0;
+      padding: 0;
     }
-
-    /* Header */
     header {
       background: #2c3e50;
-      color: #fff;
-      padding: 20px 0;
+      color: white;
+      padding: 15px;
       text-align: center;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-
-    /* Navbar */
     nav {
       background: #34495e;
       padding: 10px;
       text-align: center;
     }
-
     nav a {
-      color: #fff;
-      margin: 0 15px;
+      color: white;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
-    /* Banner */
-    .banner {
-      background: url("https://picsum.photos/1200/400") no-repeat center center/cover;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2em;
-      font-weight: bold;
-    }
-
-    /* Nội dung */
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: 20px auto;
-      background: #fff;
+    section {
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     h2 {
       color: #2c3e50;
     }
-
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 8px 0;
+    }
     footer {
+      text-align: center;
       background: #2c3e50;
       color: white;
-      text-align: center;
-      padding: 15px;
+      padding: 10px;
       margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Chào mừng đến với Website CMPhanThiết</h1>
+    <h1>Chào mừng đến với Website CMPhanThiet!</h1>
   </header>
 
   <nav>
-    <a href="#">Trang chủ</a>
-    <a href="#">Giới thiệu</a>
-    <a href="#">Tin tức</a>
-    <a href="#">Liên hệ</a>
+    <a href="#tailieu">📚 Chia sẻ tài liệu & phần mềm</a>
+    <a href="#hinhanh">🖼 Hình ảnh</a>
+    <a href="#video">🎬 Video</a>
   </nav>
 
-  <div class="banner">
-    Website Demo GitHub Pages
-  </div>
-
-  <div class="container">
-    <h2>Giới thiệu</h2>
-    <p>Đây là website thử nghiệm được xây dựng và xuất bản miễn phí trên GitHub Pages. Bạn có thể chỉnh sửa nội dung trong file <b>index.html</b> để thay đổi giao diện và thông tin.</p>
-
-    <h2>Tin mới</h2>
+  <section id="tailieu">
+    <h2>📚 Chia sẻ tài liệu & phần mềm</h2>
     <ul>
-      <li>Bài viết 1 - ngày 24/09/2025</li>
-      <li>Bài viết 2 - đang cập nhật...</li>
+      <!-- File tải trực tiếp từ GitHub -->
+      <li><a href="files/tailieu.pdf" download>📄 Tải tài liệu PDF</a></li>
+      <li><a href="files/phanmem.zip" download>💾 Tải phần mềm (ZIP)</a></li>
+
+      <!-- Nếu file quá lớn, dùng link Google Drive -->
+      <li><a href="https://drive.google.com/your-link" target="_blank">☁️ Tải phần mềm từ Google Drive</a></li>
     </ul>
-  </div>
+  </section>
+
+  <section id="hinhanh">
+    <h2>🖼 Bộ sưu tập hình ảnh</h2>
+    <p>Bạn có thể thêm hình ảnh vào đây (ví dụ <code>images/anh1.jpg</code>, <code>images/anh2.png</code>)</p>
+    <img src="images/anh1.jpg" alt="Ảnh mẫu" width="300">
+    <img src="images/anh2.png" alt="Ảnh mẫu" width="300">
+  </section>
+
+  <section id="video">
+    <h2>🎬 Video</h2>
+    <p>Bạn có thể nhúng video YouTube:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+  </section>
 
   <footer>
-    &copy; 2025 CMPhanThiết - Tất cả các quyền được bảo lưu.
+    <p>© 2025 CMPhanThiet. All rights reserved.</p>
   </footer>
 </body>
 </html>
