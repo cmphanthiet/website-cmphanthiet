@@ -2,55 +2,127 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Chia sẻ tài liệu & hình ảnh</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website CM Phan Thiết</title>
   <style>
+    /* ====== CSS CƠ BẢN ====== */
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
       margin: 0;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: url("https://picsum.photos/1600/900") no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
       text-align: center;
     }
-    h1 {
-      color: #333;
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
     }
-    .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      background: #007BFF;
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    nav a {
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
+      padding: 12px 20px;
+      display: inline-block;
       transition: background 0.3s;
     }
-    .btn:hover {
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .content {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      margin-top: 20px;
+    }
+
+    /* ====== NÚT QUAY VỀ TRANG CHỦ ====== */
+    .back-home {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .back-home:hover {
       background: #0056b3;
     }
   </style>
 </head>
 <body>
 
-  <h1>Mục chia sẻ tài liệu & hình ảnh</h1>
+  <!-- ====== HEADER ====== -->
+  <header>
+    <h1>Website CM Phan Thiết</h1>
+    <p>Chào mừng bạn đến với website</p>
+  </header>
 
-  <!-- Nút thêm tài liệu -->
-  <p>
-    <a href="https://github.com/cmphanthiet/website-cmphanthiet/upload/main/uploads" 
-       target="_blank" class="btn">📤 Thêm tài liệu / hình ảnh</a>
-  </p>
+  <!-- ====== MENU ====== -->
+  <nav>
+    <a href="index.html">Trang chủ</a>
+    <a href="tintuc.html">Tin tức</a>
+    <a href="amnhac.html">Âm nhạc</a>
+    <a href="upload.html">Mới tải lên</a>
+    <a href="lienhe.html">Liên hệ</a>
+  </nav>
 
-  <!-- Nút xoá tài liệu -->
-  <p>
-    <a href="https://github.com/cmphanthiet/website-cmphanthiet/tree/main/uploads" 
-       target="_blank" class="btn">🗑️ Xoá tài liệu / hình ảnh</a>
-  </p>
+  <!-- ====== NỘI DUNG TRANG CHỦ ====== -->
+  <div class="content">
+    <h2>Trang chủ</h2>
+    <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
+    <p>Nếu bạn đang ở trang con, sẽ có nút <b>Trở về trang chủ</b> ở dưới.</p>
+  </div>
 
-  <!-- Nút trở về trang chủ -->
-  <p>
-    <a href="index.html" class="btn">⬅️ Về trang chủ</a>
-  </p>
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <p>&copy; 2025 Website CM Phan Thiết</p>
+  </footer>
 
+  <!-- 
+    ================= HƯỚNG DẪN =================
+    1. Thay hình nền:
+       - Tìm dòng: background: url("https://picsum.photos/1600/900")
+       - Thay link trong "" bằng link hình bạn muốn.
+
+    2. Thêm menu hoặc đổi tên menu:
+       - Trong phần <nav> ... </nav>
+       - Mỗi <a href="...">Tên mục</a> là một nút menu.
+       - Ví dụ muốn đổi "Tin tức" thành "Thông tin nội bộ", chỉ cần sửa chữ giữa thẻ <a>...</a>.
+
+    3. Thêm trang mới:
+       - Tạo file HTML mới, ví dụ "gioithieu.html".
+       - Copy cấu trúc file này và thay nội dung trong <div class="content">.
+       - Để quay lại trang chủ, thêm nút:
+         <a href="index.html" class="back-home">⬅ Trở về trang chủ</a>
+
+    4. Thêm hoặc xóa hình/video/tài liệu:
+       - Dán code <img src="link_hinh.jpg" width="300"> để thêm hình.
+       - Dán code <video controls width="400"><source src="link_video.mp4" type="video/mp4"></video>
+       - Muốn xóa thì chỉ cần xóa dòng code <img> hoặc <video> tương ứng.
+  -->
 </body>
 </html>
