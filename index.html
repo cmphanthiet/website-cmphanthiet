@@ -37,6 +37,7 @@
       padding: 12px 20px;
       display: inline-block;
       transition: background 0.3s;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -48,6 +49,7 @@
       background: rgba(0, 0, 0, 0.6);
       margin: 20px;
       border-radius: 10px;
+      min-height: 300px;
     }
 
     footer {
@@ -55,21 +57,6 @@
       padding: 10px;
       background: rgba(0, 0, 0, 0.7);
       margin-top: 20px;
-    }
-
-    /* ====== NÚT QUAY VỀ TRANG CHỦ ====== */
-    .back-home {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 15px;
-      background: #007bff;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .back-home:hover {
-      background: #0056b3;
     }
   </style>
 </head>
@@ -83,18 +70,17 @@
 
   <!-- ====== MENU ====== -->
   <nav>
-    <a href="index.html">Trang chủ</a>
-    <a href="tintuc.html">Tin tức</a>
-    <a href="amnhac.html">Âm nhạc</a>
-    <a href="upload.html">Mới tải lên</a>
-    <a href="lienhe.html">Liên hệ</a>
+    <a onclick="showPage('home')">Trang chủ</a>
+    <a onclick="showPage('news')">Tin tức</a>
+    <a onclick="showPage('music')">Âm nhạc</a>
+    <a onclick="showPage('upload')">Mới tải lên</a>
+    <a onclick="showPage('contact')">Liên hệ</a>
   </nav>
 
-  <!-- ====== NỘI DUNG TRANG CHỦ ====== -->
-  <div class="content">
+  <!-- ====== KHU VỰC NỘI DUNG ====== -->
+  <div class="content" id="page-content">
     <h2>Trang chủ</h2>
     <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
-    <p>Nếu bạn đang ở trang con, sẽ có nút <b>Trở về trang chủ</b> ở dưới.</p>
   </div>
 
   <!-- ====== FOOTER ====== -->
@@ -102,27 +88,51 @@
     <p>&copy; 2025 Website CM Phan Thiết</p>
   </footer>
 
-  <!-- 
-    ================= HƯỚNG DẪN =================
-    1. Thay hình nền:
-       - Tìm dòng: background: url("https://picsum.photos/1600/900")
-       - Thay link trong "" bằng link hình bạn muốn.
+  <!-- ====== JAVASCRIPT ĐỔI NỘI DUNG ====== -->
+  <script>
+    function showPage(page) {
+      let content = document.getElementById("page-content");
 
-    2. Thêm menu hoặc đổi tên menu:
-       - Trong phần <nav> ... </nav>
-       - Mỗi <a href="...">Tên mục</a> là một nút menu.
-       - Ví dụ muốn đổi "Tin tức" thành "Thông tin nội bộ", chỉ cần sửa chữ giữa thẻ <a>...</a>.
+      if (page === "home") {
+        content.innerHTML = `
+          <h2>Trang chủ</h2>
+          <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
+        `;
+      } 
+      else if (page === "news") {
+        content.innerHTML = `
+          <h2>Tin tức</h2>
+          <p>Nội dung tin tức sẽ hiển thị tại đây.</p>
+          <ul>
+            <li>Bản tin số 1</li>
+            <li>Bản tin số 2</li>
+            <li>Bản tin số 3</li>
+          </ul>
+        `;
+      } 
+      else if (page === "music") {
+        content.innerHTML = `
+          <h2>Âm nhạc</h2>
+          <p>Danh sách bài hát hoặc video âm nhạc.</p>
+          <p><audio controls><source src="sample.mp3" type="audio/mpeg"></audio></p>
+        `;
+      } 
+      else if (page === "upload") {
+        content.innerHTML = `
+          <h2>Mới tải lên</h2>
+          <p>Các tài liệu, hình ảnh hoặc video vừa tải lên.</p>
+          <img src="https://picsum.photos/400/200" alt="Ảnh minh họa">
+        `;
+      } 
+      else if (page === "contact") {
+        content.innerHTML = `
+          <h2>Liên hệ</h2>
+          <p>Email: example@gmail.com</p>
+          <p>Điện thoại: 0123 456 789</p>
+        `;
+      }
+    }
+  </script>
 
-    3. Thêm trang mới:
-       - Tạo file HTML mới, ví dụ "gioithieu.html".
-       - Copy cấu trúc file này và thay nội dung trong <div class="content">.
-       - Để quay lại trang chủ, thêm nút:
-         <a href="index.html" class="back-home">⬅ Trở về trang chủ</a>
-
-    4. Thêm hoặc xóa hình/video/tài liệu:
-       - Dán code <img src="link_hinh.jpg" width="300"> để thêm hình.
-       - Dán code <video controls width="400"><source src="link_video.mp4" type="video/mp4"></video>
-       - Muốn xóa thì chỉ cần xóa dòng code <img> hoặc <video> tương ứng.
-  -->
 </body>
 </html>
