@@ -2,56 +2,117 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website CM Phan Thiết</title>
   <style>
-    /* ====== CSS CƠ BẢN ====== */
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url("https://picsum.photos/1600/900") no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
     }
 
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      background: #111;
+    }
+
+    /* ====== HEADER với video nền ====== */
     header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px;
+      position: relative;
+      height: 300px;
+      overflow: hidden;
       text-align: center;
+      color: white;
+    }
+
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    header h1, header p {
+      position: relative;
+      z-index: 1;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 28px;
+      font-size: 36px;
+      margin-top: 80px;
+      text-shadow: 2px 2px 4px black;
     }
 
+    header p {
+      font-size: 18px;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    /* ====== Chọn + Upload + Xoá video ====== */
+    .video-selector {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      display: flex;
+      gap: 5px;
+    }
+
+    select, input[type="file"], button {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    button {
+      background: crimson;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: darkred;
+    }
+
+    /* ====== MENU ====== */
     nav {
       display: flex;
       justify-content: center;
       background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      padding: 12px 20px;
-      display: inline-block;
-      transition: background 0.3s;
-      cursor: pointer;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      background: rgba(255, 255, 255, 0.2);
+      color: yellow;
     }
 
-    .content {
+    /* ====== NỘI DUNG ====== */
+    section {
       padding: 20px;
       background: rgba(0, 0, 0, 0.6);
       margin: 20px;
       border-radius: 10px;
-      min-height: 300px;
     }
 
+    h2 {
+      margin-bottom: 10px;
+      color: #ffd700;
+    }
+
+    /* ====== FOOTER ====== */
     footer {
       text-align: center;
       padding: 10px;
@@ -62,76 +123,122 @@
 </head>
 <body>
 
-  <!-- ====== HEADER ====== -->
+  <!-- ====== HEADER với video ====== -->
   <header>
+    <!-- Dropdown + Upload + Xoá -->
+    <div class="video-selector">
+      <select id="videoSelect">
+        <option value="video/intro.mp4" data-default="true">Video Giới thiệu</option>
+        <option value="video/nature.mp4" data-default="true">Phong cảnh</option>
+        <option value="video/team.mp4" data-default="true">Nhóm hoạt động</option>
+      </select>
+      <input type="file" id="uploadVideo" accept="video/*">
+      <button id="deleteVideo">Xoá video này</button>
+    </div>
+
+    <video id="bgVideo" autoplay muted loop>
+      <source src="video/intro.mp4" type="video/mp4">
+      Trình duyệt của bạn không hỗ trợ video.
+    </video>
+
     <h1>Website CM Phan Thiết</h1>
     <p>Chào mừng bạn đến với website</p>
   </header>
 
   <!-- ====== MENU ====== -->
   <nav>
-    <a onclick="showPage('home')">Trang chủ</a>
-    <a onclick="showPage('news')">Tin tức</a>
-    <a onclick="showPage('music')">Âm nhạc</a>
-    <a onclick="showPage('upload')">Mới tải lên</a>
-    <a onclick="showPage('contact')">Liên hệ</a>
+    <a href="#home">Trang chủ</a>
+    <a href="#news">Tin tức</a>
+    <a href="#music">Âm nhạc</a>
+    <a href="#upload">Mới tải lên</a>
+    <a href="#contact">Liên hệ</a>
   </nav>
 
-  <!-- ====== KHU VỰC NỘI DUNG ====== -->
-  <div class="content" id="page-content">
+  <!-- ====== NỘI DUNG ====== -->
+  <section id="home">
     <h2>Trang chủ</h2>
     <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
-  </div>
+  </section>
+
+  <section id="news">
+    <h2>Tin tức</h2>
+    <p>Nội dung tin tức...</p>
+  </section>
+
+  <section id="music">
+    <h2>Âm nhạc</h2>
+    <p>Nội dung âm nhạc...</p>
+  </section>
+
+  <section id="upload">
+    <h2>Mới tải lên</h2>
+    <p>Nội dung mới tải lên...</p>
+  </section>
+
+  <section id="contact">
+    <h2>Liên hệ</h2>
+    <p>Thông tin liên hệ...</p>
+  </section>
 
   <!-- ====== FOOTER ====== -->
   <footer>
-    <p>&copy; 2025 Website CM Phan Thiết</p>
+    <p>© 2025 CMPhanThiết. All rights reserved.</p>
   </footer>
 
-  <!-- ====== JAVASCRIPT ĐỔI NỘI DUNG ====== -->
   <script>
-    function showPage(page) {
-      let content = document.getElementById("page-content");
+    const videoSelect = document.getElementById("videoSelect");
+    const bgVideo = document.getElementById("bgVideo");
+    const uploadVideo = document.getElementById("uploadVideo");
+    const deleteBtn = document.getElementById("deleteVideo");
 
-      if (page === "home") {
-        content.innerHTML = `
-          <h2>Trang chủ</h2>
-          <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
-        `;
-      } 
-      else if (page === "news") {
-        content.innerHTML = `
-          <h2>Tin tức</h2>
-          <p>Nội dung tin tức sẽ hiển thị tại đây.</p>
-          <ul>
-            <li>Bản tin số 1</li>
-            <li>Bản tin số 2</li>
-            <li>Bản tin số 3</li>
-          </ul>
-        `;
-      } 
-      else if (page === "music") {
-        content.innerHTML = `
-          <h2>Âm nhạc</h2>
-          <p>Danh sách bài hát hoặc video âm nhạc.</p>
-          <p><audio controls><source src="sample.mp3" type="audio/mpeg"></audio></p>
-        `;
-      } 
-      else if (page === "upload") {
-        content.innerHTML = `
-          <h2>Mới tải lên</h2>
-          <p>Các tài liệu, hình ảnh hoặc video vừa tải lên.</p>
-          <img src="https://picsum.photos/400/200" alt="Ảnh minh họa">
-        `;
-      } 
-      else if (page === "contact") {
-        content.innerHTML = `
-          <h2>Liên hệ</h2>
-          <p>Email: example@gmail.com</p>
-          <p>Điện thoại: 0123 456 789</p>
-        `;
+    // Đổi video từ dropdown
+    videoSelect.addEventListener("change", function() {
+      const source = bgVideo.querySelector("source");
+      source.src = this.value;
+      bgVideo.load();
+      bgVideo.play();
+    });
+
+    // Upload video từ máy
+    uploadVideo.addEventListener("change", function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+
+        // Thêm vào dropdown
+        const option = document.createElement("option");
+        option.value = url;
+        option.textContent = "Video tải lên: " + file.name;
+        option.dataset.default = "false"; // đánh dấu là video có thể xoá
+        option.selected = true;
+        videoSelect.appendChild(option);
+
+        // Phát video
+        const source = bgVideo.querySelector("source");
+        source.src = url;
+        bgVideo.load();
+        bgVideo.play();
       }
-    }
+    });
+
+    // Xoá video tải lên
+    deleteBtn.addEventListener("click", function() {
+      const selectedOption = videoSelect.options[videoSelect.selectedIndex];
+      if (selectedOption.dataset.default === "true") {
+        alert("❌ Không thể xoá video mặc định.");
+        return;
+      }
+
+      const prevIndex = selectedOption.index - 1 >= 0 ? selectedOption.index - 1 : 0;
+      videoSelect.removeChild(selectedOption);
+
+      // Chọn video trước đó hoặc mặc định
+      videoSelect.selectedIndex = prevIndex;
+      const source = bgVideo.querySelector("source");
+      source.src = videoSelect.value;
+      bgVideo.load();
+      bgVideo.play();
+    });
   </script>
 
 </body>
