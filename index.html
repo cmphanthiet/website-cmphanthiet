@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Website CM Phan Thiết</title>
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     * {
       margin: 0;
@@ -85,12 +87,12 @@
       justify-content: center;
       background: rgba(0, 0, 0, 0.7);
       padding: 10px;
+      gap: 15px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
       transition: color 0.3s;
     }
@@ -142,7 +144,7 @@
     </video>
 
     <h1>Website CM Phan Thiết</h1>
-    <p>Chào mừng bạn đến với website</p>
+    <p>Chào mừng bạn đến với website nhóm</p>
   </header>
 
   <!-- ====== MENU ====== -->
@@ -151,34 +153,56 @@
     <a href="#news">Tin tức</a>
     <a href="#music">Âm nhạc</a>
     <a href="#upload">Mới tải lên</a>
+    <a href="#docs">Tài liệu</a>
+    <a href="#videos">Video</a>
     <a href="#contact">Liên hệ</a>
   </nav>
 
   <!-- ====== NỘI DUNG ====== -->
-  <section id="home">
-    <h2>Trang chủ</h2>
-    <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
-  </section>
+  <main>
+    <section id="home">
+      <h2>Trang chủ</h2>
+      <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
+    </section>
 
-  <section id="news">
-    <h2>Tin tức</h2>
-    <p>Nội dung tin tức...</p>
-  </section>
+    <section id="news">
+      <h2>Tin tức</h2>
+      <p>Nội dung tin tức...</p>
+    </section>
 
-  <section id="music">
-    <h2>Âm nhạc</h2>
-    <p>Nội dung âm nhạc...</p>
-  </section>
+    <section id="music">
+      <h2>Âm nhạc</h2>
+      <p>Nội dung âm nhạc...</p>
+    </section>
 
-  <section id="upload">
-    <h2>Mới tải lên</h2>
-    <p>Nội dung mới tải lên...</p>
-  </section>
+    <section id="upload">
+      <h2>Mới tải lên</h2>
+      <p>Nội dung mới tải lên...</p>
+    </section>
 
-  <section id="contact">
-    <h2>Liên hệ</h2>
-    <p>Thông tin liên hệ...</p>
-  </section>
+    <section id="docs">
+      <h2>Tài liệu</h2>
+      <p><a href="assets/docs/sample.pdf" download>Tải mẫu PDF</a></p>
+    </section>
+
+    <section id="videos">
+      <h2>Video mẫu</h2>
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="contact">
+      <h2>Liên hệ</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <p><input type="text" name="name" placeholder="Tên của bạn" required></p>
+        <p><input type="email" name="email" placeholder="Email" required></p>
+        <p><textarea name="message" placeholder="Nội dung"></textarea></p>
+        <p><button type="submit">Gửi</button></p>
+      </form>
+    </section>
+  </main>
 
   <!-- ====== FOOTER ====== -->
   <footer>
@@ -209,7 +233,7 @@
         const option = document.createElement("option");
         option.value = url;
         option.textContent = "Video tải lên: " + file.name;
-        option.dataset.default = "false"; // đánh dấu là video có thể xoá
+        option.dataset.default = "false";
         option.selected = true;
         videoSelect.appendChild(option);
 
@@ -240,6 +264,6 @@
       bgVideo.play();
     });
   </script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>
