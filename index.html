@@ -152,6 +152,7 @@
     <a href="#home">Trang chủ</a>
     <a href="#news">Tin tức</a>
     <a href="#music">Âm nhạc</a>
+    <a href="#gallery">Hình ảnh</a>
     <a href="#upload">Mới tải lên</a>
     <a href="#docs">Tài liệu</a>
     <a href="#videos">Video</a>
@@ -172,7 +173,15 @@
 
     <section id="music">
       <h2>Âm nhạc</h2>
-      <p>Nội dung âm nhạc...</p>
+      <audio controls>
+        <source src="music/sample.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+      </audio>
+    </section>
+
+    <section id="gallery">
+      <h2>Hình ảnh</h2>
+      <img src="images/sample.jpg" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
     </section>
 
     <section id="upload">
@@ -201,6 +210,7 @@
         <p><textarea name="message" placeholder="Nội dung"></textarea></p>
         <p><button type="submit">Gửi</button></p>
       </form>
+      <p>Email: example@gmail.com</p>
     </section>
   </main>
 
