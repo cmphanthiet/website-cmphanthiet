@@ -116,30 +116,72 @@
     <button id="bgToggle">Đổi nền</button>
   </header>
 
-  <!-- ====== NAV ====== -->
-  <nav>
-    <a data-target="home">Trang chủ</a>
-    <a data-target="about">Giới thiệu</a>
-    <a data-target="contact">Liên hệ</a>
-  </nav>
+ <!-- ====== NAV ====== -->
+<nav>
+  <a data-target="home">Trang chủ</a>
+  <a data-target="news">Tin tức</a>
+  <a data-target="music">Âm nhạc</a>
+  <a data-target="gallery">Hình ảnh</a>
+  <a data-target="upload">Mới tải lên</a>
+  <a data-target="docs">Tài liệu</a>
+  <a data-target="videos">Video</a>
+  <a data-target="contact">Liên hệ</a>
+</nav>
 
-  <!-- ====== MAIN ====== -->
-  <main>
-    <section id="home" class="active">
-      <h2>Trang chủ</h2>
-      <p>Nội dung trang chủ...</p>
-    </section>
+<!-- ====== MAIN ====== -->
+<main>
+  <section id="home" class="active">
+    <h2>Trang chủ</h2>
+    <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
+  </section>
 
-    <section id="about">
-      <h2>Giới thiệu</h2>
-      <p>Đây là phần giới thiệu.</p>
-    </section>
+  <section id="news">
+    <h2>Tin tức</h2>
+    <p>Nội dung tin tức...</p>
+  </section>
 
-    <section id="contact">
-      <h2>Liên hệ</h2>
-      <p>Email: example@gmail.com</p>
-    </section>
-  </main>
+  <section id="music">
+    <h2>Âm nhạc</h2>
+    <audio controls>
+      <source src="music/sample.mp3" type="audio/mpeg">
+      Trình duyệt không hỗ trợ phát nhạc.
+    </audio>
+  </section>
+
+  <section id="gallery">
+    <h2>Hình ảnh</h2>
+    <img src="images/sample.jpg" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
+  </section>
+
+  <section id="upload">
+    <h2>Mới tải lên</h2>
+    <p>Nội dung mới tải lên...</p>
+  </section>
+
+  <section id="docs">
+    <h2>Tài liệu</h2>
+    <p><a href="assets/docs/sample.pdf" download>Tải mẫu PDF</a></p>
+  </section>
+
+  <section id="videos">
+    <h2>Video mẫu</h2>
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/VIDEO_ID"
+      frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section id="contact">
+    <h2>Liên hệ</h2>
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+      <p><input type="text" name="name" placeholder="Tên của bạn" required></p>
+      <p><input type="email" name="email" placeholder="Email" required></p>
+      <p><textarea name="message" placeholder="Nội dung"></textarea></p>
+      <p><button type="submit">Gửi</button></p>
+    </form>
+    <p>Email: example@gmail.com</p>
+  </section>
+</main>
 
   <!-- ====== FOOTER ====== -->
   <footer>
