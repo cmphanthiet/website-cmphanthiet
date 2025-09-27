@@ -1,309 +1,163 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Website CM Phan Thiết</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Cá Nhân</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* ====== BODY ====== */
     body {
       font-family: Arial, sans-serif;
       color: #000066;
-      background: #FFFFFF;
-    }
-/* ====== BODY ====== */
-body {
-  font-family: Arial, sans-serif;
-  color: #000066;
-
-  /* màu nền dự phòng */
-  background-color: #FFFFFF;
-  
-  /* ảnh nền (nếu muốn thì bật) */
-  background-image: url("images/beach-418742_1280.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-      /* ====== HEADER với video nền ====== */
-header {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-  text-align: center;
-  color: white;
-  background: #003366; /* màu riêng cho header */
- 
-}
-   
-
-    header video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
+      background-color: #FFFFFF;
+      background-image: url("images/beach-418742_1280.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
     }
 
-    header h1, header p {
+    /* ====== HEADER ====== */
+    header {
       position: relative;
-      z-index: 1;
+      height: 300px;
+      overflow: hidden;
+      text-align: center;
+      color: white;
+      background: #003366;
     }
 
     header h1 {
-      font-size: 36px;
-      margin-top: 80px;
-      text-shadow: 2px 2px 4px black;
+      position: relative;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
-    header p {
-      font-size: 18px;
-      text-shadow: 1px 1px 3px black;
-    }
-
-    /* ====== Chọn + Upload + Xoá video ====== */
-    .video-selector {
+    header video {
       position: absolute;
-      top: 10px;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    /* Nút đổi nền */
+    #bgToggle {
+      position: absolute;
+      bottom: 10px;
       right: 10px;
       z-index: 2;
-      display: flex;
-      gap: 5px;
-    }
-
-    select, input[type="file"], button {
-      padding: 5px;
-      border-radius: 5px;
+      padding: 8px 12px;
+      background: #ff6600;
       border: none;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    button {
-      background: crimson;
+      border-radius: 5px;
       color: white;
       cursor: pointer;
     }
 
-    button:hover {
-      background: darkred;
+    #bgToggle:hover {
+      background: #cc5200;
     }
 
-    /* ====== MENU ====== */
+    /* ====== NAV ====== */
     nav {
-      display: flex;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.7);
+      background: #006699;
       padding: 10px;
-      gap: 15px;
+      text-align: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
-      transition: color 0.3s;
       cursor: pointer;
     }
 
     nav a:hover {
-      color: yellow;
+      text-decoration: underline;
     }
 
-    /* ====== NỘI DUNG ====== */
-    section {
+    /* ====== MAIN ====== */
+    main {
       padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      margin: 20px;
-      border-radius: 10px;
-      display: none; /* mặc định ẩn hết */
+      background: rgba(255,255,255,0.9);
     }
 
-    h2 {
-      margin-bottom: 10px;
-      color: #ffd700;
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
     }
 
     /* ====== FOOTER ====== */
     footer {
       text-align: center;
       padding: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      margin-top: 20px;
+      background: #003366;
+      color: white;
     }
   </style>
 </head>
 <body>
-
-  <!-- ====== HEADER với video ====== -->
+  <!-- ====== HEADER ====== -->
   <header>
-    <!-- Dropdown + Upload + Xoá -->
-    <div class="video-selector">
-      <select id="videoSelect">
-        <option value="video/intro.mp4" data-default="true">Video Giới thiệu</option>
-        <option value="video/nature.mp4" data-default="true">Phong cảnh</option>
-        <option value="video/team.mp4" data-default="true">Nhóm hoạt động</option>
-      </select>
-      <input type="file" id="uploadVideo" accept="video/*">
-      <button id="deleteVideo">Xoá video này</button>
-    </div>
-
-    <video id="bgVideo" autoplay muted loop>
-      <source src="video/intro.mp4" type="video/mp4">
-      Trình duyệt của bạn không hỗ trợ video.
+    <h1>Chào mừng đến với Website</h1>
+    <video autoplay muted loop id="bgVideo">
+      <source src="videos/intro.mp4" type="video/mp4">
     </video>
-    
     <button id="bgToggle">Đổi nền</button>
-    <h1>Website CM Phan Thiết</h1>
-    <p>Chào mừng bạn đến với website nhóm</p>
   </header>
 
-  <!-- ====== MENU ====== -->
+  <!-- ====== NAV ====== -->
   <nav>
     <a data-target="home">Trang chủ</a>
-    <a data-target="news">Tin tức</a>
-    <a data-target="music">Âm nhạc</a>
-    <a data-target="gallery">Hình ảnh</a>
-    <a data-target="upload">Mới tải lên</a>
-    <a data-target="docs">Tài liệu</a>
-    <a data-target="videos">Video</a>
+    <a data-target="about">Giới thiệu</a>
     <a data-target="contact">Liên hệ</a>
   </nav>
 
-  <!-- ====== NỘI DUNG ====== -->
+  <!-- ====== MAIN ====== -->
   <main>
-    <section id="home">
+    <section id="home" class="active">
       <h2>Trang chủ</h2>
-      <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
+      <p>Nội dung trang chủ...</p>
     </section>
 
-    <section id="news">
-      <h2>Tin tức</h2>
-      <p>Nội dung tin tức...</p>
-    </section>
-
-    <section id="music">
-      <h2>Âm nhạc</h2>
-      <audio controls>
-        <source src="music/sample.mp3" type="audio/mpeg">
-        Trình duyệt không hỗ trợ phát nhạc.
-      </audio>
-    </section>
-
-    <section id="gallery">
-      <h2>Hình ảnh</h2>
-      <img src="images/sample.jpg" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
-    </section>
-
-    <section id="upload">
-      <h2>Mới tải lên</h2>
-      <p>Nội dung mới tải lên...</p>
-    </section>
-
-    <section id="docs">
-      <h2>Tài liệu</h2>
-      <p><a href="assets/docs/sample.pdf" download>Tải mẫu PDF</a></p>
-    </section>
-
-    <section id="videos">
-      <h2>Video mẫu</h2>
-      <iframe width="560" height="315"
-        src="https://www.youtube.com/embed/VIDEO_ID"
-        frameborder="0" allowfullscreen></iframe>
+    <section id="about">
+      <h2>Giới thiệu</h2>
+      <p>Đây là phần giới thiệu.</p>
     </section>
 
     <section id="contact">
       <h2>Liên hệ</h2>
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact" />
-        <p><input type="text" name="name" placeholder="Tên của bạn" required></p>
-        <p><input type="email" name="email" placeholder="Email" required></p>
-        <p><textarea name="message" placeholder="Nội dung"></textarea></p>
-        <p><button type="submit">Gửi</button></p>
-      </form>
       <p>Email: example@gmail.com</p>
     </section>
   </main>
 
   <!-- ====== FOOTER ====== -->
   <footer>
-    <p>© 2025 CMPhanThiết. All rights reserved.</p>
+    <p>Bản quyền © 2025</p>
   </footer>
 
   <script>
-    const videoSelect = document.getElementById("videoSelect");
-    const bgVideo = document.getElementById("bgVideo");
-    const uploadVideo = document.getElementById("uploadVideo");
-    const deleteBtn = document.getElementById("deleteVideo");
-
-    // Đổi video từ dropdown
-    videoSelect.addEventListener("change", function() {
-      const source = bgVideo.querySelector("source");
-      source.src = this.value;
-      bgVideo.load();
-      bgVideo.play();
-    });
-
-    // Upload video từ máy
-    uploadVideo.addEventListener("change", function(event) {
-      const file = event.target.files[0];
-      if (file) {
-        const url = URL.createObjectURL(file);
-
-        // Thêm vào dropdown
-        const option = document.createElement("option");
-        option.value = url;
-        option.textContent = "Video tải lên: " + file.name;
-        option.dataset.default = "false";
-        option.selected = true;
-        videoSelect.appendChild(option);
-
-        // Phát video
-        const source = bgVideo.querySelector("source");
-        source.src = url;
-        bgVideo.load();
-        bgVideo.play();
-      }
-    });
-
-    // Xoá video tải lên
-    deleteBtn.addEventListener("click", function() {
-      const selectedOption = videoSelect.options[videoSelect.selectedIndex];
-      if (selectedOption.dataset.default === "true") {
-        alert("❌ Không thể xoá video mặc định.");
-        return;
-      }
-
-      const prevIndex = selectedOption.index - 1 >= 0 ? selectedOption.index - 1 : 0;
-      videoSelect.removeChild(selectedOption);
-
-      // Chọn video trước đó hoặc mặc định
-      videoSelect.selectedIndex = prevIndex;
-      const source = bgVideo.querySelector("source");
-      source.src = videoSelect.value;
-      bgVideo.load();
-      bgVideo.play();
-    });
-
-    // ====== Script ẩn/hiện section ======
+    // ====== Ẩn/hiện section ======
     function hideAllSections() {
       document.querySelectorAll("main section").forEach(sec => {
-        sec.style.display = "none";
+        sec.classList.remove("active");
       });
     }
 
     function showSection(id) {
       hideAllSections();
       const section = document.getElementById(id);
-      if (section) section.style.display = "block";
+      if (section) section.classList.add("active");
     }
 
     document.querySelectorAll("nav a").forEach(link => {
@@ -316,27 +170,27 @@ header {
 
     // Mặc định hiện Trang chủ
     showSection("home");
-     // ====== Đổi nền video/ảnh ======
-  const bgVideo = document.getElementById("bgVideo");
-  const bgToggle = document.getElementById("bgToggle");
-  let isVideo = true; // đang dùng video
 
-  bgToggle.addEventListener("click", function () {
-    if (isVideo) {
-      // Ẩn video, đổi sang ảnh nền
-      bgVideo.style.display = "none";
-      document.querySelector("header").style.backgroundImage = "url('images/beach-418742_1280.jpg')";
-      document.querySelector("header").style.backgroundSize = "cover";
-      document.querySelector("header").style.backgroundPosition = "center";
-      bgToggle.textContent = "Đổi về Video";
-    } else {
-      // Hiện lại video
-      bgVideo.style.display = "block";
-      document.querySelector("header").style.backgroundImage = "none";
-      bgToggle.textContent = "Đổi nền";
-    }
-    isVideo = !isVideo;
-  });
-</script>
+    // ====== Đổi nền video/ảnh ======
+    const bgVideo = document.getElementById("bgVideo");
+    const bgToggle = document.getElementById("bgToggle");
+    let isVideo = true;
+
+    bgToggle.addEventListener("click", function () {
+      if (isVideo) {
+        bgVideo.style.display = "none";
+        document.querySelector("header").style.backgroundImage = "url('images/beach-418742_1280.jpg')";
+        document.querySelector("header").style.backgroundSize = "cover";
+        document.querySelector("header").style.backgroundPosition = "center";
+        bgToggle.textContent = "Đổi về Video";
+      } else {
+        bgVideo.style.display = "block";
+        document.querySelector("header").style.backgroundImage = "none";
+        bgToggle.textContent = "Đổi nền";
+      }
+      isVideo = !isVideo;
+    });
+  </script>
 </body>
 </html>
+```
