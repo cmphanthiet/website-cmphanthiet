@@ -30,7 +30,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+}
       /* ====== HEADER với video nền ====== */
 header {
   position: relative;
@@ -316,10 +316,9 @@ header {
 
     // Mặc định hiện Trang chủ
     showSection("home");
-    <script>
+     // ====== Đổi nền video/ảnh ======
   const bgVideo = document.getElementById("bgVideo");
   const bgToggle = document.getElementById("bgToggle");
-
   let isVideo = true; // đang dùng video
 
   bgToggle.addEventListener("click", function () {
@@ -339,6 +338,5 @@ header {
     isVideo = !isVideo;
   });
 </script>
-
 </body>
 </html>
