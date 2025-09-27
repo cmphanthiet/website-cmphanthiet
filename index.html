@@ -20,49 +20,32 @@
       padding: 0;
     }
 
-    /* ====== HEADER ====== */
-    header {
-      position: relative;
-      height: 300px;
-      overflow: hidden;
-      text-align: center;
-      color: white;
-      background: #003366;
-    }
+   <!-- ====== HEADER với video ====== -->
+<header>
+  <!-- Dropdown + Upload + Xoá -->
+  <div class="video-selector">
+    <select id="videoSelect">
+      <option value="video/intro.mp4" data-default="true">Video Giới thiệu</option>
+      <option value="video/nature.mp4" data-default="true">Phong cảnh</option>
+      <option value="video/team.mp4" data-default="true">Nhóm hoạt động</option>
+    </select>
+    <input type="file" id="uploadVideo" accept="video/*">
+    <button id="deleteVideo">Xoá video này</button>
+  </div>
 
-    header h1 {
-      position: relative;
-      z-index: 2;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  <!-- Video nền -->
+  <video id="bgVideo" autoplay muted loop>
+    <source src="video/intro.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+  </video>
+  
+  <!-- Nút đổi nền -->
+  <button id="bgToggle">Đổi nền</button>
 
-    header video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    /* Nút đổi nền */
-    #bgToggle {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      z-index: 2;
-      padding: 8px 12px;
-      background: #ff6600;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-    }
-
-    #bgToggle:hover {
-      background: #cc5200;
-    }
+  <!-- Tiêu đề -->
+  <h1>Website CM Phan Thiết</h1>
+  <p>Chào mừng bạn đến với website nhóm</p>
+</header>
 
     /* ====== NAV ====== */
     nav {
