@@ -12,32 +12,21 @@
       box-sizing: border-box;
     }
 
-  /* ====== BODY ====== */
-body {
-  background-color: #FFFFFF; /* màu dự phòng */
-  background-image: url("images/beach-jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      background: #111;
+    }
 
-/* ====== HEADER ====== */
-header {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-  text-align: center;
-  color: white;
+    /* ====== HEADER với video nền ====== */
+    header {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      text-align: center;
+      color: white;
+    }
 
-  màu nền dự phòng 
-  background-color: #663300;
-
-  ảnh nền (nếu muốn thì bật) 
-  background-image: url("images/beach-jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
     header video {
       position: absolute;
       top: 0;
@@ -141,7 +130,7 @@ header {
     <!-- Dropdown + Upload + Xoá -->
     <div class="video-selector">
       <select id="videoSelect">
-        <option value="video/blue.mp4" data-default="true">Video Giới thiệu</option>
+        <option value="video/intro.mp4" data-default="true">Video Giới thiệu</option>
         <option value="video/nature.mp4" data-default="true">Phong cảnh</option>
         <option value="video/team.mp4" data-default="true">Nhóm hoạt động</option>
       </select>
@@ -150,7 +139,7 @@ header {
     </div>
 
     <video id="bgVideo" autoplay muted loop>
-      <source src="video/blue.mp4" type="video/mp4">
+      <source src="video/intro.mp4" type="video/mp4">
       Trình duyệt của bạn không hỗ trợ video.
     </video>
 
@@ -192,7 +181,7 @@ header {
 
     <section id="gallery">
       <h2>Hình ảnh</h2>
-      <img src="images/beach-.jpg" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
+      <img src="images/sample.jpg" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
     </section>
 
     <section id="upload">
