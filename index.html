@@ -1,307 +1,294 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website CM Phan Thiết</title>
+  <link rel="stylesheet" href="css/style.css">
   <style>
-    /* ========== Reset / cơ bản ========== */
-    * { box-sizing: border-box; }
+    /* ====== BODY ====== */
     body {
+      font-family: Arial, sans-serif;
+      color: #000066;
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #003366;
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
+      padding: 0;
     }
 
-    /* ========== HEADER (video nền + chữ cuộn) ========== */
+    /* ====== HEADER ====== */
     header {
       position: relative;
-      height: 340px; /* chỉnh nếu muốn header cao hơn/ thấp hơn */
+      height: 350px;
       overflow: hidden;
-      color: #fff;
+      color: white;
+      text-align: center;
     }
 
-    /* video nền phủ toàn bộ header */
+    /* Video nền */
     header video {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
       object-fit: cover;
       z-index: 0;
     }
 
-    /* overlay làm mờ để chữ dễ đọc */
-    .overlay {
+    /* Overlay */
+    header .overlay {
       position: relative;
       z-index: 1;
       height: 100%;
+      background: rgba(0, 0, 0, 0.4);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 18px;
-      background: rgba(0,0,0,0.2); /* lớp mờ tổng (tweak nếu cần) */
+      justify-content: center;
     }
 
-    .overlay h1 {
-      margin: 8px 0 12px;
+    /* Tiêu đề chính */
+    .site-title {
       font-size: 28px;
-      letter-spacing: 0.3px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      font-weight: bold;
+      margin: 10px auto;
+      text-shadow: 2px 2px 4px black;
     }
 
-    /* vùng cuộn (giữ khung, ẩn phần overflow) */
-    .scroll-viewport {
-      width: 100%;
-      max-width: 920px;
-      height: calc(100% - 68px); /* để dành chỗ cho tiêu đề; tinh chỉnh nếu cần */
+    /* Bố cục 3 cột */
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 20px;
+    }
+
+    /* Bên trái */
+    .header-left img {
+      max-height: 150px;
+      border-radius: 8px;
+    }
+
+    /* Giữa: chữ cuộn */
+    .header-center {
+      flex: 1;
+      margin: 0 20px;
       overflow: hidden;
       position: relative;
-      padding: 8px 10px;
-      border-radius: 6px;
-      background: rgba(0,0,0,0.25);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
 
-    /* element thực hiện animation bằng transform (mượt hơn) */
-    .scroll-inner {
-      display: block;
-      transform: translateY(100%); /* bắt đầu ở dưới */
-      animation: scrollUp 24s linear infinite;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.8;
+    .scroll-text {
+      position: absolute;
+      bottom: -100%;
+      width: 100%;
+      animation: scrollUp 20s linear infinite;
+    }
+
+    .scroll-text:hover {
+      animation-play-state: paused;
+    }
+
+    .scroll-text p {
       font-size: 18px;
-      color: #fff;
-      padding: 6px 12px;
+      line-height: 1.8;
       white-space: pre-line;
     }
 
-    /* pause khi hover hoặc khi focus (hỗ trợ bàn phím) */
-    .scroll-inner:hover,
-    .scroll-inner:focus {
-      animation-play-state: paused;
-      outline: none;
+    /* Bên phải */
+    .header-right img {
+      max-height: 100px;
     }
 
-    /* cho phép focus (bấm tab sẽ vào để pause) */
-    .scroll-inner { outline: none; }
-
+    /* Keyframes cuộn chữ */
     @keyframes scrollUp {
-      0%   { transform: translateY(100%); }
-      100% { transform: translateY(-100%); }
+      0%   { bottom: -100%; }
+      100% { bottom: 100%; }
     }
 
-    /* ========== NAV ========== */
+    /* ====== NAV ====== */
     nav {
       background: #006699;
       padding: 10px;
       text-align: center;
     }
+
     nav a {
-      color: #fff;
+      color: white;
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-      padding: 6px 10px;
-      border-radius: 4px;
-      display: inline-block;
+      margin: 0 15px;
+      font-weight: bold;
       cursor: pointer;
     }
-    nav a:hover { background: rgba(255,255,255,0.06); }
+
+    nav a:hover,
     nav a.active {
-      background: #005077;
-      box-shadow: 0 2px 0 rgba(0,0,0,0.15) inset;
+      text-decoration: underline;
     }
 
-    /* ========== MAIN ========== */
+    /* ====== MAIN ====== */
     main {
       padding: 20px;
-      background: rgba(255,255,255,0.98);
-      min-height: 320px;
-    }
-    /* chỉ hiển thị section có class "active" */
-    section { display: none; }
-    section.active { display: block; }
-
-    /* layout đơn giản cho nội dung */
-    .card {
-      background: #fff;
-      padding: 16px;
-      border-radius: 6px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-      max-width: 960px;
-      margin: 0 auto;
+      background: rgba(255,255,255,0.9);
     }
 
-    /* ========== FOOTER ========== */
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    /* ====== FOOTER ====== */
     footer {
       text-align: center;
-      padding: 14px 10px;
+      padding: 10px;
       background: #003366;
-      color: #fff;
-    }
-
-    /* ========== Responsive nhỏ ========== */
-    @media (max-width:720px) {
-      header { height: 380px; }
-      .overlay h1 { font-size: 22px; }
-      .scroll-inner { font-size: 16px; }
-      nav a { margin: 6px 6px; }
+      color: white;
     }
   </style>
 </head>
 <body>
-  <!-- HEADER: video nền + chữ cuộn -->
+  <!-- ====== HEADER ====== -->
   <header>
-    <!-- ÞẢM BẢO: đặt file videos/217488_small.mp4 -->
+    <!-- Video nền -->
     <video autoplay muted loop playsinline>
-      <source src="videos/217488_small.mp4" type="video/mp4">
-      <!-- Nếu muốn có poster khi video chưa load, thêm attribute poster="images/poster.jpg" -->
-      Trình duyệt không hỗ trợ video.
+      <source src="videos/175299-853193703_small.mp4" type="video/mp4">
+      Trình duyệt của bạn không hỗ trợ video.
     </video>
 
-    <div class="overlay" aria-hidden="false">
-      <h1>Website CM Phan Thiết</h1>
+    <div class="overlay">
+      <h1 class="site-title">Website CM Phan Thiết</h1>
 
-      <div class="scroll-viewport" aria-label="Đoạn giới thiệu cuộn">
-        <!-- tabindex cho phép focus bằng bàn phím để pause -->
-        <div class="scroll-inner" tabindex="0">
-          Đời lạt mùi và đau đớn bất công<br>
-          Là để việc cho đời xuân sức khoẻ<br><br>
-          Kiêu hãnh chút, bạn đời ơi, tuổi trẻ<br>
-          Say tương lai là tuổi của anh hùng!<br><br>
-          Đứng lên đi, xây dựng cuộc đời chung<br>
-          Nắm tay sắt quyết đồng tâm lật đổ<br>
-          Cả chế độ hung tàn gây thống khổ<br>
-          Và tị hiềm, và gian dối điêu vong!
+      <div class="header-content">
+        <!-- Bên trái: ảnh -->
+        <div class="header-left">
+          <img src="images/beach-418742_1280.jpg" alt="Ảnh minh họa">
+        </div>
+
+        <!-- Giữa: chữ cuộn -->
+        <div class="header-center">
+          <div class="scroll-text">
+            <p>
+              Đời lạt mùi và đau đớn bất công<br>
+              Là để việc cho đời xuân sức khoẻ<br><br>
+              Kiêu hãnh chút, bạn đời ơi, tuổi trẻ<br>
+              Say tương lai là tuổi của anh hùng!<br><br>
+              Đứng lên đi, xây dựng cuộc đời chung<br>
+              Nắm tay sắt quyết đồng tâm lật đổ<br>
+              Cả chế độ hung tàn gây thống khổ<br>
+              Và tị hiềm, và gian dối điêu vong!
+            </p>
+          </div>
+        </div>
+
+        <!-- Bên phải: logo -->
+        <div class="header-right">
+          <img src="images/59533616_2a262f.png" alt="Logo nhóm">
         </div>
       </div>
     </div>
   </header>
 
-  <!-- NAV (1 trang - show 1 section tại 1 thời điểm) -->
-  <nav role="navigation" aria-label="Menu chính">
-    <a href="#" data-target="home" class="active">Trang chủ</a>
-    <a href="#" data-target="news">Tin tức</a>
-    <a href="#" data-target="music">Âm nhạc</a>
-    <a href="#" data-target="gallery">Hình ảnh</a>
-    <a href="#" data-target="upload">Mới tải lên</a>
-    <a href="#" data-target="docs">Tài liệu</a>
-    <a href="#" data-target="videos">Video</a>
-    <a href="#" data-target="contact">Liên hệ</a>
+  <!-- ====== NAV ====== -->
+  <nav>
+    <a data-target="home" class="active">Trang chủ</a>
+    <a data-target="news">Tin tức</a>
+    <a data-target="music">Âm nhạc</a>
+    <a data-target="gallery">Hình ảnh</a>
+    <a data-target="upload">Mới tải lên</a>
+    <a data-target="docs">Tài liệu</a>
+    <a data-target="videos">Video</a>
+    <a data-target="contact">Liên hệ</a>
   </nav>
 
-  <!-- MAIN: các section, chỉ 1 section visible -->
+  <!-- ====== MAIN ====== -->
   <main>
     <section id="home" class="active">
-      <div class="card">
-        <h2>Trang chủ</h2>
-        <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
-      </div>
+      <h2>Trang chủ</h2>
+      <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
     </section>
 
     <section id="news">
-      <div class="card">
-        <h2>Tin tức</h2>
-        <p>Nội dung tin tức...</p>
-      </div>
+      <h2>Tin tức</h2>
+      <p>Nội dung tin tức...</p>
     </section>
 
     <section id="music">
-      <div class="card">
-        <h2>Âm nhạc</h2>
-        <audio controls>
-          <source src="music/sample.mp3" type="audio/mpeg">
-          Trình duyệt không hỗ trợ phát nhạc.
-        </audio>
-      </div>
+      <h2>Âm nhạc</h2>
+      <audio controls>
+        <source src="music/sample.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+      </audio>
     </section>
 
     <section id="gallery">
-      <div class="card">
-        <h2>Hình ảnh</h2>
-        <img src="images/sample.jpg" alt="Ảnh mẫu" style="max-width:100%;border-radius:6px;">
-      </div>
+      <h2>Hình ảnh</h2>
+      <img src="images/sample.jpg" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
     </section>
 
     <section id="upload">
-      <div class="card">
-        <h2>Mới tải lên</h2>
-        <p>Nội dung mới tải lên...</p>
-      </div>
+      <h2>Mới tải lên</h2>
+      <p>Nội dung mới tải lên...</p>
     </section>
 
     <section id="docs">
-      <div class="card">
-        <h2>Tài liệu</h2>
-        <p><a href="assets/docs/sample.pdf" download>Tải mẫu PDF</a></p>
-      </div>
+      <h2>Tài liệu</h2>
+      <p><a href="assets/docs/sample.pdf" download>Tải mẫu PDF</a></p>
     </section>
 
     <section id="videos">
-      <div class="card">
-        <h2>Video mẫu</h2>
-        <iframe width="560" height="315"
-          src="https://www.youtube.com/embed/VIDEO_ID"
-          frameborder="0" allowfullscreen></iframe>
-      </div>
+      <h2>Video mẫu</h2>
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        frameborder="0" allowfullscreen></iframe>
     </section>
 
     <section id="contact">
-      <div class="card">
-        <h2>Liên hệ</h2>
-        <form name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact" />
-          <p><input type="text" name="name" placeholder="Tên của bạn" required></p>
-          <p><input type="email" name="email" placeholder="Email" required></p>
-          <p><textarea name="message" placeholder="Nội dung"></textarea></p>
-          <p><button type="submit">Gửi</button></p>
-        </form>
-        <p>Email: example@gmail.com</p>
-      </div>
+      <h2>Liên hệ</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <p><input type="text" name="name" placeholder="Tên của bạn" required></p>
+        <p><input type="email" name="email" placeholder="Email" required></p>
+        <p><textarea name="message" placeholder="Nội dung"></textarea></p>
+        <p><button type="submit">Gửi</button></p>
+      </form>
+      <p>Email: example@gmail.com</p>
     </section>
   </main>
 
+  <!-- ====== FOOTER ====== -->
   <footer>
     <p>Bản quyền © 2025</p>
   </footer>
 
   <script>
-    // ========== JS: điều khiển hiển/ẩn section và highlight menu ==========
-    (function () {
-      const navLinks = document.querySelectorAll('nav a[data-target]');
-      const sections = document.querySelectorAll('main section');
-
-      function hideAllSections() {
-        sections.forEach(s => s.classList.remove('active'));
-      }
-      function setActiveNav(targetId) {
-        navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === targetId));
-      }
-      function showSection(id) {
-        hideAllSections();
-        const sec = document.getElementById(id);
-        if (sec) sec.classList.add('active');
-        setActiveNav(id);
-        // (tuỳ chọn) chuyển focus tới section hiện hành để hỗ trợ a11y
-        sec && sec.querySelector('h2') && sec.querySelector('h2').focus && sec.querySelector('h2').focus();
-      }
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = this.dataset.target;
-          showSection(target);
-        });
+    // ====== Ẩn/hiện section ======
+    function hideAllSections() {
+      document.querySelectorAll("main section").forEach(sec => {
+        sec.classList.remove("active");
       });
+    }
 
-      // mặc định hiện "home"
-      showSection('home');
-    })();
+    function showSection(id) {
+      hideAllSections();
+      const section = document.getElementById(id);
+      if (section) section.classList.add("active");
+    }
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+        this.classList.add("active");
+        const target = this.dataset.target;
+        showSection(target);
+      });
+    });
+
+    // Mặc định hiện Trang chủ
+    showSection("home");
   </script>
 </body>
 </html>
+```
