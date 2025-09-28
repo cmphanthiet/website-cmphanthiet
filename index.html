@@ -6,60 +6,87 @@
   <title>Website CM Phan Thiết</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      color: #000066;
-      margin: 0;
-      padding: 0;
-    }
+    /* ====== RESET ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* ====== HEADER ====== */
-   /* ====== HEADER ====== */
+body {
+  font-family: Arial, sans-serif;
+  color: #000066;
+  background-color: #FFFFFF;
+  line-height: 1.6;
+}
+
+/* ====== HEADER ====== */
 header {
   position: relative;
-  height: 350px;
+  height: 380px; /* giảm từ 420px để header gọn hơn */
   overflow: hidden;
   color: white;
   text-align: center;
 }
 
+/* Video nền */
 header video {
   position: absolute;
   top: 0; left: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 0;
 }
 
-header .overlay {
+/* Overlay */
+.overlay {
   position: relative;
   z-index: 1;
+  width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 15px; /* giảm từ 30px để chữ lên cao hơn */
 }
 
-/* Logo nhóm - đặt ở góc trên trái */
+/* Logo góc trên trái */
 .logo {
   position: absolute;
   top: 15px;
   left: 20px;
-  width: 100px;   /* nhỏ gọn hơn */
+  width: 100px; /* nhỏ gọn */
   height: auto;
+  z-index: 2;
   margin: 0;
-  z-index: 2;     /* nổi lên trên */
 }
 
 /* Tiêu đề */
 .site-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 5px auto 15px auto;
-  text-shadow: 2px 2px 6px black;
+  font-size: 36px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* Bố cục 3 cột */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px 10px 20px;
+  box-sizing: border-box;
+}
+
+/* Bên trái & phải: ảnh biển & sách nhích lên 1 chút */
+.header-left img,
+.header-right img {
+  max-height: 160px;
+  margin-bottom: 10px;
 }
 
 /* Giữa: chữ cuộn */
@@ -68,16 +95,17 @@ header .overlay {
   margin: 0 20px;
   overflow: hidden;
   position: relative;
-  height: 160px; /* giảm chiều cao để chữ gần tiêu đề hơn */
+  height: 140px; /* thấp hơn để gần tiêu đề */
 }
 
 .scroll-text {
   position: absolute;
-  bottom: -60%; /* cho chữ bắt đầu cuộn cao hơn */
+  bottom: -50%; /* xuất hiện cao hơn */
   width: 100%;
   animation: scrollUp 18s linear infinite;
 }
 .scroll-text:hover { animation-play-state: paused; }
+
 .scroll-text p {
   font-size: 18px;
   line-height: 1.8;
@@ -85,54 +113,47 @@ header .overlay {
 }
 
 @keyframes scrollUp {
-  0%   { bottom: -60%; } /* xuất hiện sớm hơn */
+  0%   { bottom: -50%; }
   100% { bottom: 100%; }
 }
 
-
-/* Ảnh hai bên */
-.side-images {
-  position: absolute;
-  bottom: 50px;  /* trước là 10px, giờ nâng lên */
-  left: 0; right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-.header-left img,
-.header-right img {
-  max-height: 120px;
+/* ====== NAV ====== */
+nav {
+  background: #006699;
+  padding: 10px;
+  text-align: center;
 }
 
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    /* ====== NAV ====== */
-    nav {
-      background: #006699;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    nav a:hover,
-    nav a.active { text-decoration: underline; }
+nav a:hover,
+nav a.active {
+  text-decoration: underline;
+}
 
-    /* ====== MAIN ====== */
-    main { padding: 20px; background: rgba(255,255,255,0.9); }
-    section { display: none; }
-    section.active { display: block; }
+/* ====== MAIN ====== */
+main {
+  padding: 20px;
+  background: rgba(255,255,255,0.9);
+}
 
-    /* ====== FOOTER ====== */
-    footer {
-      text-align: center;
-      padding: 10px;
-      background: #003366;
-      color: white;
-    }
+section { display: none; }
+section.active { display: block; }
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: center;
+  padding: 10px;
+  background: #003366;
+  color: white;
+}
+
   </style>
 </head>
 <body>
