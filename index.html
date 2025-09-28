@@ -21,9 +21,10 @@ body {
 }
 
 /* ====== HEADER ====== */
+/* ====== HEADER ====== */
 header {
   position: relative;
-  height: 380px; /* giảm từ 420px để header gọn hơn */
+  height: 380px; /* Chiều cao tổng thể header */
   overflow: hidden;
   color: white;
   text-align: center;
@@ -50,18 +51,13 @@ header video {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 15px; /* giảm từ 30px để chữ lên cao hơn */
+  padding-top: 10px; /* Logo lên cao hơn */
 }
 
-/* Logo góc trên trái */
+/* Logo (hoa) */
 .logo {
-  position: absolute;
-  top: 15px;
-  left: 20px;
-  width: 100px; /* nhỏ gọn */
-  height: auto;
-  z-index: 2;
-  margin: 0;
+  max-height: 120px;
+  margin-bottom: 10px;
 }
 
 /* Tiêu đề */
@@ -72,29 +68,35 @@ header video {
 }
 
 /* Bố cục 3 cột */
-/* Bố cục 3 cột */
 .header-content {
   display: flex;
-  justify-content: center; /* Căn giữa các phần tử */
-  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
   box-sizing: border-box;
 }
 
-.header-left img {
-  width: 100px; /* Kích thước logo */
-  height: auto;
-  margin-right: 20px; /* Khoảng cách giữa logo và tiêu đề */
+/* Bên trái: hình biển */
+.header-left img.beach {
+  max-height: 250px; /* tăng chiều cao */
+  margin-top: 10px; /* cách trên */
 }
 
+/* Bên phải: sách */
+.header-right img {
+  max-height: 160px;
+  margin-bottom: 10px;
+}
+
+/* Giữa: chữ cuộn */
 .header-center {
   flex: 1;
   margin: 0 20px;
   overflow: hidden;
   position: relative;
-  height: 140px;
+  height: 140px; /* chỉnh để chữ sát tiêu đề hơn */
 }
 
 .scroll-text {
@@ -116,6 +118,7 @@ header video {
   0%   { bottom: -30%; }
   100% { bottom: 100%; }
 }
+
 
 
 /* ====== NAV ====== */
@@ -159,27 +162,29 @@ footer {
 </head>
 <body>
   <!-- ====== HEADER ====== -->
-  <header>
-    <video autoplay muted loop playsinline>
-      <source src="videos/intro.mp4" type="video/mp4">
-      Trình duyệt của bạn không hỗ trợ video.
-    </video>
+ <header>
+  <video autoplay muted loop playsinline>
+    <source src="videos/intro.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+  </video>
 
-    <div class="overlay">
-      <!-- Logo -->
-      <img src="images/logo.png" alt="Logo nhóm" class="logo">
-      <!-- Tiêu đề -->
-      <h1 class="site-title">Website CM Phan Thiết</h1>
+  <div class="overlay">
+    <!-- Logo (hoa) -->
+    <img src="images/logo.png" alt="Logo nhóm" class="logo">
 
-      <div class="header-content">
-        <!-- Trái: ảnh biển -->
-        <div class="header-left">
-          <img src="images/beach.png" alt="Ảnh biển">
-        </div>
-        <!-- Giữa: chữ cuộn -->
-        <div class="header-center">
-          <div class="scroll-text">
-            <p>
+    <!-- Tiêu đề -->
+    <h1 class="site-title">Website CM Phan Thiết</h1>
+
+    <div class="header-content">
+      <!-- Trái: hình biển/người -->
+      <div class="header-left">
+        <img src="images/beach.png" alt="Hình biển" class="beach">
+      </div>
+
+      <!-- Giữa: chữ cuộn -->
+      <div class="header-center">
+        <div class="scroll-text">
+          <p>
 Đời lạt mùi và đau đớn bất công<br>
 Là để việc cho đời xuân sức khoẻ<br><br>
 Kiêu hãnh chút, bạn đời ơi, tuổi trẻ<br>
@@ -188,16 +193,18 @@ Say tương lai là tuổi của anh hùng!<br><br>
 Nắm tay sắt quyết đồng tâm lật đổ<br>
 Cả chế độ hung tàn gây thống khổ<br>
 Và tị hiềm, và gian dối điêu vong!
-            </p>
-          </div>
-        </div>
-        <!-- Phải: sách -->
-        <div class="header-right">
-          <img src="images/book.png" alt="Quyển sách">
+          </p>
         </div>
       </div>
+
+      <!-- Phải: sách -->
+      <div class="header-right">
+        <img src="images/book.png" alt="Quyển sách">
+      </div>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- ====== NAV ====== -->
   <nav>
