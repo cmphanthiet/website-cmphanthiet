@@ -46,63 +46,56 @@ header video {
   padding-top: 30px;
 }
 
-/* Logo nhóm */
-.logo {
-  width: 140px; /* logo lớn hơn */
-  height: auto;
-  margin-bottom: 10px;
-}
+ /* Logo ở trên */
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
+    }
 
-/* Tiêu đề */
-.site-title {
-  font-size: 36px;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
+    /* Bố cục 3 phần */
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+      height: 100%;
+      padding: 0 20px 10px 20px;
+      box-sizing: border-box;
+    }
 
-/* Bố cục 3 cột */
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px 10px 20px;
-  box-sizing: border-box;
-}
+    .header-left img,
+    .header-right img {
+      max-height: 120px;
+    }
 
-/* Bên trái & phải */
-.header-left img,
-.header-right img {
-  max-height: 160px;
-}
+    .header-center {
+      flex: 1;
+      margin: 0 20px;
+      overflow: hidden;
+      position: relative;
+      height: 200px;
+    }
 
-/* Giữa: chữ cuộn */
-.header-center {
-  flex: 1;
-  margin: 0 20px;
-  overflow: hidden;
-  position: relative;
-  height: 220px;
-}
+    .scroll-text {
+      position: absolute;
+      bottom: -100%;
+      width: 100%;
+      animation: scrollUp 20s linear infinite;
+    }
+    .scroll-text:hover { animation-play-state: paused; }
+    .scroll-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
 
-.scroll-text {
-  position: absolute;
-  bottom: -100%;
-  width: 100%;
-  animation: scrollUp 18s linear infinite;
-}
-.scroll-text:hover { animation-play-state: paused; }
-.scroll-text p {
-  font-size: 18px;
-  line-height: 1.8;
-  white-space: pre-line;
-}
+    @keyframes scrollUp {
+      0%   { bottom: -100%; }
+      100% { bottom: 100%; }
+    }
 
-@keyframes scrollUp {
-  0%   { bottom: -100%; }
-  100% { bottom: 100%; }
-}
+
 
 /* ====== NAV ====== */
 nav {
