@@ -1,0 +1,49 @@
+/* Reset chung */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  background: #800000; /* màu nền mặc định */
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  height: 300px;
+  display: flex;
+  justify-content: space-between; /* logo trái, text giữa, hình phải */
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  color: white;
+
+  /* --- NỀN CÓ 2 CHẾ ĐỘ --- */
+  /* Nếu muốn ảnh thì bỏ comment dòng dưới */
+  /* background: url("../images/beach-418742_1280.jpg") no-repeat center/cover; */
+
+  /* Nếu muốn màu thì dùng dòng này */
+  background-color: #800000;
+}
+
+/* Logo bên trái */
+header .logo {
+  width: 80px;
+}
+
+/* Text ở giữa */
+header h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Ảnh bên phải */
+header .side-img {
+  width: 100px;
+}
