@@ -14,91 +14,93 @@
     }
 
     /* ====== HEADER ====== */
-    header {
-      position: relative;
-      height: 350px;
-      overflow: hidden;
-      color: white;
-      text-align: center;
-    }
+   /* ====== HEADER ====== */
+header {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
 
-    header video {
-      position: absolute;
-      top: 0; left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
+header video {
+  position: absolute;
+  top: 0; left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
-    header .overlay {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      background: rgba(0,0,0,0.4);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: 20px;
-    }
+header .overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
 
-    /* Tiêu đề */
-    .site-title {
-      font-size: 32px;
-      font-weight: bold;
-      margin: 5px auto 15px auto;
-      text-shadow: 2px 2px 6px black;
-    }
+/* Logo góc phải */
+.logo {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 80px;
+  height: auto;
+  z-index: 2;
+}
 
-    /* Logo ở trên */
-    .logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 10px;
-    }
+/* Tiêu đề */
+.site-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 5px auto 15px auto;
+  text-shadow: 2px 2px 6px black;
+}
 
-    /* Bố cục 3 phần */
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-      height: 100%;
-      padding: 0 20px 10px 20px;
-      box-sizing: border-box;
-    }
+/* Chữ cuộn giữa */
+.scroll-container {
+  position: relative;
+  width: 60%;   /* chỉ chiếm 60% giữa header */
+  height: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.scroll-text {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  animation: scrollUp 20s linear infinite;
+}
+.scroll-text:hover { animation-play-state: paused; }
+.scroll-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
 
-    .header-left img,
-    .header-right img {
-      max-height: 120px;
-    }
+@keyframes scrollUp {
+  0%   { bottom: -100%; }
+  100% { bottom: 100%; }
+}
 
-    .header-center {
-      flex: 1;
-      margin: 0 20px;
-      overflow: hidden;
-      position: relative;
-      height: 200px;
-    }
+/* Ảnh hai bên */
+.side-images {
+  position: absolute;
+  bottom: 50px;  /* trước là 10px, giờ nâng lên */
+  left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.header-left img,
+.header-right img {
+  max-height: 120px;
+}
 
-    .scroll-text {
-      position: absolute;
-      bottom: -100%;
-      width: 100%;
-      animation: scrollUp 20s linear infinite;
-    }
-    .scroll-text:hover { animation-play-state: paused; }
-    .scroll-text p {
-      font-size: 18px;
-      line-height: 1.8;
-      white-space: pre-line;
-    }
-
-    @keyframes scrollUp {
-      0%   { bottom: -100%; }
-      100% { bottom: 100%; }
-    }
 
     /* ====== NAV ====== */
     nav {
