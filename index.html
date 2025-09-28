@@ -72,38 +72,38 @@ header video {
 }
 
 /* Bố cục 3 cột */
+/* Bố cục 3 cột */
 .header-content {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center; /* Căn giữa các phần tử */
+  align-items: center; /* Căn giữa theo chiều dọc */
   width: 100%;
   max-width: 1200px;
-  padding: 0 20px 10px 20px;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
-/* Bên trái & phải: ảnh biển & sách nhích lên 1 chút */
-.header-left img,
-.header-right img {
-  max-height: 160px;
-  margin-bottom: 10px;
+.header-left img {
+  width: 100px; /* Kích thước logo */
+  height: auto;
+  margin-right: 20px; /* Khoảng cách giữa logo và tiêu đề */
 }
 
-/* Giữa: chữ cuộn */
 .header-center {
   flex: 1;
   margin: 0 20px;
   overflow: hidden;
   position: relative;
-  height: 140px; /* thấp hơn để gần tiêu đề */
+  height: 140px;
 }
 
 .scroll-text {
   position: absolute;
-  bottom: -50%; /* xuất hiện cao hơn */
+  bottom: -30%;
   width: 100%;
   animation: scrollUp 18s linear infinite;
 }
+
 .scroll-text:hover { animation-play-state: paused; }
 
 .scroll-text p {
@@ -113,9 +113,10 @@ header video {
 }
 
 @keyframes scrollUp {
-  0%   { bottom: -50%; }
+  0%   { bottom: -30%; }
   100% { bottom: 100%; }
 }
+
 
 /* ====== NAV ====== */
 nav {
