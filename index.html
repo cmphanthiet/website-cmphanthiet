@@ -51,54 +51,72 @@
       text-shadow: 2px 2px 6px black;
     }
 
-    /* Logo ở trên */
-    .logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 10px;
-    }
+   /* Logo ở trên: to hơn */
+.logo {
+  width: 200px;       /* tăng size logo */
+  height: auto;
+  margin-bottom: 15px;
+}
 
-    /* Bố cục 3 phần */
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-      height: 100%;
-      padding: 0 20px 10px 20px;
-      box-sizing: border-box;
-    }
+/* Tiêu đề */
+.site-title {
+  font-size: 42px;    /* chữ to hơn cho cân logo */
+  font-weight: bold;
+  margin: 10px auto 25px auto;
+  text-shadow: 2px 2px 6px black;
+}
 
-    .header-left img,
-    .header-right img {
-      max-height: 120px;
-    }
+/* Bố cục 3 phần */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* canh giữa theo chiều dọc */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-    .header-center {
-      flex: 1;
-      margin: 0 20px;
-      overflow: hidden;
-      position: relative;
-      height: 200px;
-    }
+/* Hình người bên trái (trước là ảnh biển) */
+.header-left img {
+  max-height: 220px;     /* cho to hơn */
+  display: block;
+  margin: 0 auto;
+  transform: translateY(-40px); /* đẩy lên cao hơn */
+}
 
-    .scroll-text {
-      position: absolute;
-      bottom: -100%;
-      width: 100%;
-      animation: scrollUp 20s linear infinite;
-    }
-    .scroll-text:hover { animation-play-state: paused; }
-    .scroll-text p {
-      font-size: 18px;
-      line-height: 1.8;
-      white-space: pre-line;
-    }
+/* Hình sách bên phải */
+.header-right img {
+  max-height: 120px;
+}
 
-    @keyframes scrollUp {
-      0%   { bottom: -100%; }
-      100% { bottom: 100%; }
-    }
+/* Chữ cuộn */
+.header-center {
+  flex: 1;
+  margin: 0 20px;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+}
+
+.scroll-text {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  animation: scrollUp 20s linear infinite;
+}
+.scroll-text:hover { animation-play-state: paused; }
+.scroll-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+@keyframes scrollUp {
+  0%   { bottom: -100%; }
+  100% { bottom: 100%; }
+}
+
 
     /* ====== NAV ====== */
     nav {
@@ -131,28 +149,30 @@
   </style>
 </head>
 <body>
-  <!-- ====== HEADER ====== -->
-  <header>
-    <video autoplay muted loop playsinline>
-      <source src="videos/intro.mp4" type="video/mp4">
-      Trình duyệt của bạn không hỗ trợ video.
-    </video>
+ <!-- ====== HEADER ====== -->
+<header>
+  <video autoplay muted loop playsinline>
+    <source src="videos/intro.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+  </video>
 
-    <div class="overlay">
-      <!-- Logo -->
-      <img src="images/logo.png" alt="Logo nhóm" class="logo">
-      <!-- Tiêu đề -->
-      <h1 class="site-title">Website CM Phan Thiết</h1>
+  <div class="overlay">
+    <!-- Logo lớn hơn -->
+    <img src="images/logo.png" alt="Logo nhóm" class="logo">
+    <!-- Tiêu đề -->
+    <h1 class="site-title">Website CM Phan Thiết</h1>
 
-      <div class="header-content">
-        <!-- Trái: ảnh biển -->
-        <div class="header-left">
-          <img src="images/beach.png" alt="Ảnh biển">
-        </div>
-        <!-- Giữa: chữ cuộn -->
-        <div class="header-center">
-          <div class="scroll-text">
-            <p>
+    <!-- Bố cục 3 phần -->
+    <div class="header-content">
+      <!-- Trái: hình người -->
+      <div class="header-left">
+        <img src="images/beach.png" alt="Hình người">
+      </div>
+
+      <!-- Giữa: chữ cuộn -->
+      <div class="header-center">
+        <div class="scroll-text">
+          <p>
 Đời lạt mùi và đau đớn bất công<br>
 Là để việc cho đời xuân sức khoẻ<br><br>
 Kiêu hãnh chút, bạn đời ơi, tuổi trẻ<br>
@@ -161,16 +181,17 @@ Say tương lai là tuổi của anh hùng!<br><br>
 Nắm tay sắt quyết đồng tâm lật đổ<br>
 Cả chế độ hung tàn gây thống khổ<br>
 Và tị hiềm, và gian dối điêu vong!
-            </p>
-          </div>
-        </div>
-        <!-- Phải: sách -->
-        <div class="header-right">
-          <img src="images/book.png" alt="Quyển sách">
+          </p>
         </div>
       </div>
+
+      <!-- Phải: sách -->
+      <div class="header-right">
+        <img src="images/book.png" alt="Quyển sách">
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- ====== NAV ====== -->
   <nav>
