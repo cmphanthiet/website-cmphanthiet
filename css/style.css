@@ -1,6 +1,7 @@
 ```css
-/* ====== RESET ====== */
-* {
+   /* ====== RESET ====== */
+*
+    {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,9 +15,10 @@ body {
 }
 
 /* ====== HEADER ====== */
+/* ====== HEADER ====== */
 header {
   position: relative;
-  height: 420px; /* tăng chiều cao */
+  height: 340px; /* Chiều cao tổng thể header */
   overflow: hidden;
   color: white;
   text-align: center;
@@ -43,57 +45,150 @@ header video {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 0.5px;
+}
+/* Logo (hoa) */
+.logo {
+  max-height: 100px;
+  display: block;
+  margin: 0; /* giữ đúng vị trí sát trên */
+  animation: spin3D 20s linear infinite; /* quay 20s một vòng, chậm */
+  transform-style: preserve-3d;
 }
 
- /* Logo ở trên */
-    .logo {
-      width: 120px;
-      height: auto;
-      margin-bottom: 10px;
-    }
+/* Hiệu ứng quay 3D như quả địa cầu */
+@keyframes spin3D {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
 
-    /* Bố cục 3 phần */
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      width: 100%;
-      height: 100%;
-      padding: 0 20px 10px 20px;
-      box-sizing: border-box;
-    }
 
-    .header-left img,
-    .header-right img {
-      max-height: 120px;
-    }
+/* Tiêu đề */
+.site-title {
+  font-size: 36px;
+  margin: 0px 0 5px 0;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
 
-    .header-center {
-      flex: 1;
-      margin: 0 20px;
-      overflow: hidden;
-      position: relative;
-      height: 200px;
-    }
+/* Bố cục 3 cột */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* thay vì flex-end */
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
 
-    .scroll-text {
-      position: absolute;
-      bottom: -100%;
-      width: 100%;
-      animation: scrollUp 20s linear infinite;
-    }
-    .scroll-text:hover { animation-play-state: paused; }
-    .scroll-text p {
-      font-size: 18px;
-      line-height: 1.8;
-      white-space: pre-line;
-    }
+/* Bên trái: hình biển */
+.header-left img.beach {
+  width: 120px;      /* giữ cố định chiều ngang */
+  height: 800px;     /* tăng chiều cao theo ý */
+  object-fit: cover; /* đảm bảo ảnh không bị méo quá nhiều */
+ margin-bottom: 80px; /* đẩy ảnh lên */
+}
 
-    @keyframes scrollUp {
-      0%   { bottom: -100%; }
-      100% { bottom: 100%; }
-    }
+/* Bên phải: sách */
+.header-right img {
+  max-height: 160px;
+  margin-bottom: 40px;
+  animation: spin 20s linear infinite; /* Quay 20 giây 1 vòng */
+}
+    /* Hiệu ứng quay */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Giữa: chữ cuộn */
+.header-center {
+  flex: 1;
+  margin: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 200px; /* chỉnh để chữ sát tiêu đề hơn */
+}
+
+.scroll-text {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  animation: scrollUp 18s linear infinite;
+}
+
+.scroll-text:hover { animation-play-state: paused; }
+
+.scroll-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+@keyframes scrollUp {
+  0%   { bottom: -30%; }
+  100% { bottom: 100%; }
+}
+/* ====== QUOTES SECTION ====== */
+/* ====== QUOTES SECTION ====== */
+.quotes-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.quotes-section h3 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #003366;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.quote-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.quote-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #006699;
+}
+
+.quote-card p {
+  font-size: 16px;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.quote-card span {
+  display: block;
+  font-weight: bold;
+  color: #006699;
+}
 
 
 
