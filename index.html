@@ -60,28 +60,31 @@
       to { transform: rotateY(360deg); }
     }
 
-    .site-title {
-      font-size: 36px;
-      margin: 0px 0 5px 0;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    }
+  /* Tiêu đề */
+.site-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 15px 0;
+  text-align: center;
+  text-shadow: 2px 2px 4px black;
+}
 
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      max-width: 1200px;
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
+/* Bố cục giữa phần còn lại */
+.header-content {
+  display: flex;
+  justify-content: flex-start; /* ảnh bên trái + chữ ở giữa */
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+  margin-top: 20px; /* để tách khỏi tiêu đề */
+}
 
-    .header-left img.beach {
-      width: 120px;
-      height: 800px;
-      object-fit: cover;
-      margin-bottom: 80px;
-    }
+
+  /* Ảnh bên trái */
+.header-left img {
+  max-height: 150px;
+  border-radius: 8px;
+}
 
     .header-right img {
       max-height: 160px;
@@ -94,32 +97,34 @@
       to { transform: rotate(360deg); }
     }
 
-    .header-center {
-      flex: 1;
-      margin: 20px;
-      overflow: hidden;
-      position: relative;
-      height: 200px;
-    }
-
-    .scroll-text {
-  width: 100%;
-  height: 100px; /* chiều cao khung chữ */
+   /* Chữ cuộn */
+.header-center {
+  flex: 1;
+  margin-left: 40px; /* đẩy chữ ra khỏi ảnh biển */
   overflow: hidden;
   position: relative;
-  margin-top: 10px;
+}
+
+  .scroll-text {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  animation: scrollUp 20s linear infinite;
 }
 
     .scroll-text:hover { animation-play-state: paused; }
 
-  .scroll-text p {
-  position: absolute;
-  bottom: -100%;
-  width: 100%;
+ .scroll-text p {
   font-size: 18px;
   line-height: 1.8;
   white-space: pre-line;
-  animation: scrollUp 18s linear infinite;
+}
+/* Logo ở góc trên bên phải */
+.logo-top-right {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  max-height: 80px;
 }
 
 @keyframes scrollUp {
@@ -216,9 +221,13 @@
     <div class="overlay">
       <img src="images/logo.png" alt="Logo nhóm" class="logo">
       <h1 class="site-title">Website CM Phan Thiết</h1>
+       <div class="header-content">
+          <div class="header-left">
+          <img src="images/beach.png" alt="Hình biển" class="beach">
+        </div>
+    <div class="header-center">
        <div class="scroll-text">
-            <p>
-Đời lạt mùi và đau đớn bất công<br>
+<p>Đời lạt mùi và đau đớn bất công<br>
 Là để việc cho đời xuân sức khoẻ<br><br>
 Kiêu hãnh chút, bạn đời ơi, tuổi trẻ<br>
 Say tương lai là tuổi của anh hùng!<br><br>
@@ -228,13 +237,6 @@ Cả chế độ hung tàn gây thống khổ<br>
 Và tị hiềm, và gian dối điêu vong!
             </p>
           </div>
-
-      <div class="header-content">
-        <div class="header-left">
-          <img src="images/beach.png" alt="Hình biển" class="beach">
-        </div>
-        <div class="header-center">
-         
         </div>
         <div class="header-right">
           <img src="images/book.png" alt="Quyển sách">
