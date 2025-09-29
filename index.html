@@ -208,6 +208,23 @@
       background: #003366;
       color: white;
     }
+    .bio {
+  background-color: #e6f2ff; /* màu xanh nhạt dịu mắt */
+  border: 2px solid #006699; /* viền xanh đậm */
+  padding: 15px 20px;         /* khoảng cách bên trong */
+  margin-top: 10px;           /* khoảng cách với nhân vật */
+  border-radius: 12px;        /* bo góc mềm mại */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* đổ bóng nhẹ */
+  transition: all 0.3s ease;  /* hiệu ứng khi hiện/ẩn */
+  font-size: 15px;            /* chữ vừa phải */
+  color: #003366;             /* chữ màu xanh đậm */
+  line-height: 1.6;           /* dễ đọc hơn */
+}
+
+.bio p {
+  margin: 0;
+}
+
 
   </style>
 </head>
@@ -266,28 +283,43 @@ Và tị hiềm, và gian dối điêu vong!
 
       <!-- Quotes Section -->
       <section class="quotes">
-        <div class="quote-card">
+      <div class="quote-card" onclick="toggleBio('bio1')">
           <img src="images/nhanvat1.jpg" alt="Nhân vật 1">
           <p>"Hãy luôn chậm rãi trong việc chọn bạn và càng chậm rãi trong việc thay bạn."</p>
           <span>- Nhân vật 1</span>
-        </div>
+         </div>
+          <div id="bio1" class="bio" style="display: none;">
+  <p>Tiểu sử chi tiết của Nhân vật 1...</p>
+</div>
 
-        <div class="quote-card">
-          <img src="images/nhanvat2.jpg" alt="Nhân vật 2">
-          <p>"Điều này nhấn mạnh tính quý giá và cẩn trọng khi xây dựng tình bạn."</p>
-          <span>- Nhân vật 2</span>
-        </div>
 
-        <div class="quote-card">
-          <img src="images/nhanvat3.jpg" alt="Nhân vật 3">
-          <p>"Một người bạn trung thành còn quý hơn vàng."</p>
-          <span>- Nhân vật 3</span>
-        </div>
+        <div class="quote-card" onclick="toggleBio('bio2')">
+  <img src="images/nhanvat2.jpg" alt="Nhân vật 2">
+  <p>"Điều này nhấn mạnh tính quý giá và cẩn trọng khi xây dựng tình bạn."</p>
+  <span>- Nhân vật 2</span>
+</div>
+<div id="bio2" class="bio" style="display: none;">
+  <p>Tiểu sử chi tiết của Nhân vật 2...</p>
+</div>
 
-        <div class="quote-card">
-          <img src="images/nhanvat4.jpg" alt="Nhân vật 4">
-          <p>"Tình bạn chân thật là ánh sáng dẫn lối trong bóng tối."</p>
-          <span>- Nhân vật 4</span>
+<div class="quote-card" onclick="toggleBio('bio3')">
+  <img src="images/nhanvat3.jpg" alt="Nhân vật 3">
+  <p>"Một người bạn trung thành còn quý hơn vàng."</p>
+  <span>- Nhân vật 3</span>
+</div>
+<div id="bio3" class="bio" style="display: none;">
+  <p>Tiểu sử chi tiết của Nhân vật 3...</p>
+</div>
+
+<div class="quote-card" onclick="toggleBio('bio4')">
+  <img src="images/nhanvat4.jpg" alt="Nhân vật 4">
+  <p>"Tình bạn chân thật là ánh sáng dẫn lối trong bóng tối."</p>
+  <span>- Nhân vật 4</span>
+</div>
+<div id="bio4" class="bio" style="display: none;">
+  <p>Tiểu sử chi tiết của Nhân vật 4...</p>
+</div>
+
         </div>
       </section>
     </section>
@@ -351,6 +383,15 @@ Và tị hiềm, và gian dối điêu vong!
       });
     });
     showSection("home");
+    function toggleBio(bioId) {
+  var bio = document.getElementById(bioId);
+  if (bio.style.display === "none") {
+    bio.style.display = "block";
+  } else {
+    bio.style.display = "none";
+  }
+}
+
   </script>
 </body>
 </html>
