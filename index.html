@@ -7,250 +7,219 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ====== RESET ====== */
-*
-    {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #000066;
-  background-color: #FFFFFF;
-  line-height: 1.6;
-}
+    body {
+      font-family: Arial, sans-serif;
+      color: #000066;
+      background-color: #FFFFFF;
+      line-height: 1.6;
+    }
 
-/* ====== HEADER ====== */
-/* ====== HEADER ====== */
-header {
-  position: relative;
-  height: 340px; /* Chiều cao tổng thể header */
-  overflow: hidden;
-  color: white;
-  text-align: center;
-}
+    /* ====== HEADER ====== */
+    header {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
 
-/* Video nền */
-header video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
+    header video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
 
-/* Overlay */
-.overlay {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 0.5px;
-}
-/* Logo (hoa) */
-.logo {
-  max-height: 100px;
-  display: block;
-  margin: 0; /* giữ đúng vị trí sát trên */
-  animation: spin3D 20s linear infinite; /* quay 20s một vòng, chậm */
-  transform-style: preserve-3d;
-}
+    .overlay {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 0.5px;
+    }
 
-/* Hiệu ứng quay 3D như quả địa cầu */
-@keyframes spin3D {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
+    .logo {
+      max-height: 100px;
+      display: block;
+      margin: 0;
+      animation: spin3D 20s linear infinite;
+      transform-style: preserve-3d;
+    }
 
+    @keyframes spin3D {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
 
-/* Tiêu đề */
-.site-title {
-  font-size: 36px;
-  margin: 0px 0 5px 0;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
+    .site-title {
+      font-size: 36px;
+      margin: 0px 0 5px 0;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
 
-/* Bố cục 3 cột */
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* thay vì flex-end */
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
-/* Bên trái: hình biển */
-.header-left img.beach {
-  width: 120px;      /* giữ cố định chiều ngang */
-  height: 800px;     /* tăng chiều cao theo ý */
-  object-fit: cover; /* đảm bảo ảnh không bị méo quá nhiều */
- margin-bottom: 80px; /* đẩy ảnh lên */
-}
+    .header-left img.beach {
+      width: 120px;
+      height: 800px;
+      object-fit: cover;
+      margin-bottom: 80px;
+    }
 
-/* Bên phải: sách */
-.header-right img {
-  max-height: 160px;
-  margin-bottom: 40px;
-  animation: spin 20s linear infinite; /* Quay 20 giây 1 vòng */
-}
-    /* Hiệu ứng quay */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+    .header-right img {
+      max-height: 160px;
+      margin-bottom: 40px;
+      animation: spin 20s linear infinite;
+    }
 
-/* Giữa: chữ cuộn */
-.header-center {
-  flex: 1;
-  margin: 20px;
-  overflow: hidden;
-  position: relative;
-  height: 200px; /* chỉnh để chữ sát tiêu đề hơn */
-}
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-.scroll-text {
-  position: absolute;
-  bottom: 0%;
-  width: 100%;
-  animation: scrollUp 18s linear infinite;
-}
+    .header-center {
+      flex: 1;
+      margin: 20px;
+      overflow: hidden;
+      position: relative;
+      height: 200px;
+    }
 
-.scroll-text:hover { animation-play-state: paused; }
+    .scroll-text {
+      position: absolute;
+      bottom: 0%;
+      width: 100%;
+      animation: scrollUp 18s linear infinite;
+    }
 
-.scroll-text p {
-  font-size: 18px;
-  line-height: 1.8;
-  white-space: pre-line;
-}
+    .scroll-text:hover { animation-play-state: paused; }
 
-@keyframes scrollUp {
-  0%   { bottom: -30%; }
-  100% { bottom: 100%; }
-}
-/* ====== QUOTES SECTION ====== */
-.quotes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin: 30px 0;
-}
+    .scroll-text p {
+      font-size: 18px;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
 
-.quote-card {
-  background: #f9f9f9;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    @keyframes scrollUp {
+      0%   { bottom: -30%; }
+      100% { bottom: 100%; }
+    }
 
-.quote-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+    /* ====== QUOTES SECTION ====== */
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
 
-.quote-card img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  border: 3px solid #006699;
-}
+    .quote-card {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.quote-card p {
-  font-size: 16px;
-  font-style: italic;
-  color: #333;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
+    .quote-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
 
-.quote-card span {
-  display: block;
-  font-weight: bold;
-  color: #006699;
-}
+    .quote-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #006699;
+    }
 
+    .quote-card p {
+      font-size: 16px;
+      font-style: italic;
+      color: #333;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
 
+    .quote-card span {
+      display: block;
+      font-weight: bold;
+      color: #006699;
+    }
 
-/* ====== NAV ====== */
-nav {
-  background: #006699;
-  padding: 10px;
-  text-align: center;
-}
+    /* ====== NAV ====== */
+    nav {
+      background: #006699;
+      padding: 10px;
+      text-align: center;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-nav a:hover,
-nav a.active {
-  text-decoration: underline;
-}
+    nav a:hover,
+    nav a.active { text-decoration: underline; }
 
-/* ====== MAIN ====== */
-main {
-  padding: 20px;
-  background: rgba(255,255,255,0.9);
-}
+    /* ====== MAIN ====== */
+    main { padding: 20px; background: rgba(255,255,255,0.9); }
 
-section { display: none; }
-section.active { display: block; }
+    section { display: none; }
+    section.active { display: block; }
 
-/* ====== FOOTER ====== */
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #003366;
-  color: white;
-}
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #003366;
+      color: white;
+    }
 
   </style>
 </head>
 <body>
   <!-- ====== HEADER ====== -->
- <header>
-  <video autoplay muted loop playsinline>
-    <source src="videos/intro.mp4" type="video/mp4">
-    Trình duyệt của bạn không hỗ trợ video.
-  </video>
+  <header>
+    <video autoplay muted loop playsinline>
+      <source src="videos/intro.mp4" type="video/mp4">
+      Trình duyệt của bạn không hỗ trợ video.
+    </video>
 
-  <div class="overlay">
-    <!-- Logo (hoa) -->
-    <img src="images/logo.png" alt="Logo nhóm" class="logo">
+    <div class="overlay">
+      <img src="images/logo.png" alt="Logo nhóm" class="logo">
+      <h1 class="site-title">Website CM Phan Thiết</h1>
 
-    <!-- Tiêu đề -->
-    <h1 class="site-title">Website CM Phan Thiết</h1>
-
-    <div class="header-content">
-      <!-- Trái: hình biển/người -->
-      <div class="header-left">
-        <img src="images/beach.png" alt="Hình biển" class="beach">
-      </div>
-
-      <!-- Giữa: chữ cuộn -->
-      <div class="header-center">
-        <div class="scroll-text">
-          <p>
+      <div class="header-content">
+        <div class="header-left">
+          <img src="images/beach.png" alt="Hình biển" class="beach">
+        </div>
+        <div class="header-center">
+          <div class="scroll-text">
+            <p>
 Đời lạt mùi và đau đớn bất công<br>
 Là để việc cho đời xuân sức khoẻ<br><br>
 Kiêu hãnh chút, bạn đời ơi, tuổi trẻ<br>
@@ -259,18 +228,15 @@ Say tương lai là tuổi của anh hùng!<br><br>
 Nắm tay sắt quyết đồng tâm lật đổ<br>
 Cả chế độ hung tàn gây thống khổ<br>
 Và tị hiềm, và gian dối điêu vong!
-          </p>
+            </p>
+          </div>
+        </div>
+        <div class="header-right">
+          <img src="images/book.png" alt="Quyển sách">
         </div>
       </div>
-
-      <!-- Phải: sách -->
-      <div class="header-right">
-        <img src="images/book.png" alt="Quyển sách">
-      </div>
     </div>
-  </div>
-</header>
-
+  </header>
 
   <!-- ====== NAV ====== -->
   <nav>
@@ -285,76 +251,75 @@ Và tị hiềm, và gian dối điêu vong!
   </nav>
 
   <!-- ====== MAIN ====== -->
-<section id="home" class="active">
-  <h2>Trang chủ</h2>
-  <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
+  <main>
+    <section id="home" class="active">
+      <h2>Trang chủ</h2>
+      <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
 
-  <!-- Quotes Section -->
-  <section class="quotes-section">
-    <h3>Nhân vật & Châm ngôn</h3>
-    <div class="quotes">
-      <div class="quote-card">
-        <img src="images/nhanvat1.jpg" alt="Nhân vật 1">
-        <p>"Hãy luôn chậm rãi trong việc chọn bạn và càng chậm rãi trong việc thay bạn."</p>
-        <span>- Nhân vật 1</span>
-      </div>
+      <!-- Quotes Section -->
+      <section class="quotes">
+        <div class="quote-card">
+          <img src="images/nhanvat1.jpg" alt="Nhân vật 1">
+          <p>"Hãy luôn chậm rãi trong việc chọn bạn và càng chậm rãi trong việc thay bạn."</p>
+          <span>- Nhân vật 1</span>
+        </div>
 
-      <div class="quote-card">
-        <img src="images/nhanvat2.jpg" alt="Nhân vật 2">
-        <p>"Điều này nhấn mạnh tính quý giá và cẩn trọng khi xây dựng tình bạn."</p>
-        <span>- Nhân vật 2</span>
-      </div>
+        <div class="quote-card">
+          <img src="images/nhanvat2.jpg" alt="Nhân vật 2">
+          <p>"Điều này nhấn mạnh tính quý giá và cẩn trọng khi xây dựng tình bạn."</p>
+          <span>- Nhân vật 2</span>
+        </div>
 
-      <div class="quote-card">
-        <img src="images/nhanvat3.jpg" alt="Nhân vật 3">
-        <p>"Một người bạn trung thành còn quý hơn vàng."</p>
-        <span>- Nhân vật 3</span>
-      </div>
+        <div class="quote-card">
+          <img src="images/nhanvat3.jpg" alt="Nhân vật 3">
+          <p>"Một người bạn trung thành còn quý hơn vàng."</p>
+          <span>- Nhân vật 3</span>
+        </div>
 
-      <div class="quote-card">
-        <img src="images/nhanvat4.jpg" alt="Nhân vật 4">
-        <p>"Tình bạn chân thật là ánh sáng dẫn lối trong bóng tối."</p>
-        <span>- Nhân vật 4</span>
-      </div>
-    </div>
-  </section>
-</section>
+        <div class="quote-card">
+          <img src="images/nhanvat4.jpg" alt="Nhân vật 4">
+          <p>"Tình bạn chân thật là ánh sáng dẫn lối trong bóng tối."</p>
+          <span>- Nhân vật 4</span>
+        </div>
+      </section>
+    </section>
 
+    <section id="news"><h2>Tin tức</h2><p>Nội dung tin tức...</p></section>
 
-  <section id="news"><h2>Tin tức</h2><p>Nội dung tin tức...</p></section>
+    <section id="music"><h2>Âm nhạc</h2>
+      <audio controls>
+        <source src="music/sample.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ phát nhạc.
+      </audio>
+    </section>
 
-  <section id="music"><h2>Âm nhạc</h2>
-    <audio controls>
-      <source src="music/sample.mp3" type="audio/mpeg">
-      Trình duyệt không hỗ trợ phát nhạc.
-    </audio>
-  </section>
+    <section id="gallery"><h2>Hình ảnh</h2>
+      <img src="images/logo.png" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
+    </section>
 
-  <section id="gallery"><h2>Hình ảnh</h2>
-    <img src="images/logo.png" alt="Ảnh mẫu" style="max-width:100%;border-radius:8px;">
-  </section>
+    <section id="upload"><h2>Mới tải lên</h2><p>Nội dung mới tải lên...</p></section>
 
-  <section id="upload"><h2>Mới tải lên</h2><p>Nội dung mới tải lên...</p></section>
+    <section id="docs"><h2>Tài liệu</h2>
+      <p><a href="assets/docs/sample.pdf" download>Tải mẫu PDF</a></p>
+    </section>
 
-  <section id="docs"><h2>Tài liệu</h2><p><a href="assets/docs/sample.pdf" download>Tải mẫu PDF</a></p></section>
+    <section id="videos"><h2>Video mẫu</h2>
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/embed/VIDEO_ID"
+        frameborder="0" allowfullscreen></iframe>
+    </section>
 
-  <section id="videos"><h2>Video mẫu</h2>
-    <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/VIDEO_ID"
-      frameborder="0" allowfullscreen></iframe>
-  </section>
-
-  <section id="contact"><h2>Liên hệ</h2>
-    <form name="contact" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contact" />
-      <p><input type="text" name="name" placeholder="Tên của bạn" required></p>
-      <p><input type="email" name="email" placeholder="Email" required></p>
-      <p><textarea name="message" placeholder="Nội dung"></textarea></p>
-      <p><button type="submit">Gửi</button></p>
-    </form>
-    <p>Email: example@gmail.com</p>
-  </section>
-</main>
+    <section id="contact"><h2>Liên hệ</h2>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <p><input type="text" name="name" placeholder="Tên của bạn" required></p>
+        <p><input type="email" name="email" placeholder="Email" required></p>
+        <p><textarea name="message" placeholder="Nội dung"></textarea></p>
+        <p><button type="submit">Gửi</button></p>
+      </form>
+      <p>Email: example@gmail.com</p>
+    </section>
+  </main>
 
   <!-- ====== FOOTER ====== -->
   <footer><p>Bản quyền © 2025</p></footer>
