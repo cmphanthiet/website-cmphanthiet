@@ -103,25 +103,29 @@
     }
 
     .scroll-text {
-      position: absolute;
-      bottom: 0%;
-      width: 100%;
-      animation: scrollUp 18s linear infinite;
-    }
+  width: 100%;
+  height: 100px; /* chiều cao khung chữ */
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+}
 
     .scroll-text:hover { animation-play-state: paused; }
 
-    .scroll-text p {
-      font-size: 18px;
-      line-height: 1.8;
-      white-space: pre-line;
-    }
+  .scroll-text p {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+  animation: scrollUp 18s linear infinite;
+}
 
-    @keyframes scrollUp {
-      0%   { bottom: -30%; }
-      100% { bottom: 100%; }
-    }
-
+@keyframes scrollUp {
+  0%   { bottom: -100%; }
+  100% { bottom: 100%; }
+}
     /* ====== QUOTES SECTION ====== */
     .quotes {
       display: grid;
@@ -212,13 +216,7 @@
     <div class="overlay">
       <img src="images/logo.png" alt="Logo nhóm" class="logo">
       <h1 class="site-title">Website CM Phan Thiết</h1>
-
-      <div class="header-content">
-        <div class="header-left">
-          <img src="images/beach.png" alt="Hình biển" class="beach">
-        </div>
-        <div class="header-center">
-          <div class="scroll-text">
+       <div class="scroll-text">
             <p>
 Đời lạt mùi và đau đớn bất công<br>
 Là để việc cho đời xuân sức khoẻ<br><br>
@@ -230,6 +228,13 @@ Cả chế độ hung tàn gây thống khổ<br>
 Và tị hiềm, và gian dối điêu vong!
             </p>
           </div>
+
+      <div class="header-content">
+        <div class="header-left">
+          <img src="images/beach.png" alt="Hình biển" class="beach">
+        </div>
+        <div class="header-center">
+         
         </div>
         <div class="header-right">
           <img src="images/book.png" alt="Quyển sách">
