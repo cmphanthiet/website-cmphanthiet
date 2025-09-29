@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ====== RESET ====== */
-* {
+*
+    {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -53,19 +54,25 @@ header video {
   align-items: center;
   padding-top: 0.5px;
 }
-
 /* Logo (hoa) */
 .logo {
   max-height: 100px;
-  margin-bottom: 0px;
-  animation: spin 20s linear infinite; /* Quay 20 giây 1 vòng */
+  display: block;
+  margin: 0; /* giữ đúng vị trí sát trên */
+  animation: spin3D 20s linear infinite; /* quay 20s một vòng, chậm */
+  transform-style: preserve-3d;
 }
-    
-/* Hiệu ứng quay */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+/* Hiệu ứng quay 3D như quả địa cầu */
+@keyframes spin3D {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
+
 
 /* Tiêu đề */
 .site-title {
