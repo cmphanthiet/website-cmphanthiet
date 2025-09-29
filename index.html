@@ -51,13 +51,20 @@ header video {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 0.5px; /* Logo lên cao hơn */
+  padding-top: 0.5px;
 }
 
 /* Logo (hoa) */
 .logo {
   max-height: 100px;
   margin-bottom: 0px;
+  animation: spin 20s linear infinite; /* Quay 20 giây 1 vòng */
+}
+    
+/* Hiệu ứng quay */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Tiêu đề */
