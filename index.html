@@ -133,12 +133,21 @@
   100% { bottom: 100%; }
 }
     /* ====== QUOTES SECTION ====== */
+   
     .quotes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin: 30px 0;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* khoảng cách giữa hàng trên và hàng dưới */
+}
+
+.quotes-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* khoảng cách giữa các nhân vật trong 1 hàng */
+}
+
 
     .quote-card {
       background: #f9f9f9;
@@ -282,47 +291,60 @@ Và tị hiềm, và gian dối điêu vong!
       <p>Đây là trang chính của website. Bạn có thể thêm nội dung, hình ảnh hoặc video tại đây.</p>
 
       <!-- Quotes Section -->
-      <section class="quotes">
-      <div class="quote-card" onclick="toggleBio('bio1')">
-          <img src="images/nhanvat1.jpg" alt="Nhân vật 1">
-          <p>"Hãy luôn chậm rãi trong việc chọn bạn và càng chậm rãi trong việc thay bạn."</p>
-          <span>- Nhân vật 1</span>
-         </div>
-          <div id="bio1" class="bio" style="display: none;">
-  <p>Tiểu sử chi tiết của Nhân vật 1...</p>
-</div>
+      <!-- Quotes Section -->
+<section class="quotes">
+  <!-- Hàng nhân vật chính -->
+  <div class="quotes-row">
+    <div class="quote-card" onclick="toggleBio('bioMain')">
+      <img src="images/nhanvat_chinh.jpg" alt="Nhân vật Chính">
+      <p>"Một trích dẫn tiêu biểu của nhân vật chính."</p>
+      <span>- Nhân vật Chính</span>
+    </div>
+  </div>
+  <div id="bioMain" class="bio" style="display: none;">
+    <p>Tiểu sử chi tiết của Nhân vật Chính...</p>
+  </div>
 
+  <!-- Hàng 4 nhân vật -->
+  <div class="quotes-row">
+    <div class="quote-card" onclick="toggleBio('bio1')">
+      <img src="images/nhanvat1.jpg" alt="Nhân vật 1">
+      <p>"Hãy luôn chậm rãi trong việc chọn bạn và càng chậm rãi trong việc thay bạn."</p>
+      <span>- Nhân vật 1</span>
+    </div>
+    <div id="bio1" class="bio" style="display: none;">
+      <p>Tiểu sử chi tiết của Nhân vật 1...</p>
+    </div>
 
-        <div class="quote-card" onclick="toggleBio('bio2')">
-  <img src="images/nhanvat2.jpg" alt="Nhân vật 2">
-  <p>"Điều này nhấn mạnh tính quý giá và cẩn trọng khi xây dựng tình bạn."</p>
-  <span>- Nhân vật 2</span>
-</div>
-<div id="bio2" class="bio" style="display: none;">
-  <p>Tiểu sử chi tiết của Nhân vật 2...</p>
-</div>
+    <div class="quote-card" onclick="toggleBio('bio2')">
+      <img src="images/nhanvat2.jpg" alt="Nhân vật 2">
+      <p>"Điều này nhấn mạnh tính quý giá và cẩn trọng khi xây dựng tình bạn."</p>
+      <span>- Nhân vật 2</span>
+    </div>
+    <div id="bio2" class="bio" style="display: none;">
+      <p>Tiểu sử chi tiết của Nhân vật 2...</p>
+    </div>
 
-<div class="quote-card" onclick="toggleBio('bio3')">
-  <img src="images/nhanvat3.jpg" alt="Nhân vật 3">
-  <p>"Một người bạn trung thành còn quý hơn vàng."</p>
-  <span>- Nhân vật 3</span>
-</div>
-<div id="bio3" class="bio" style="display: none;">
-  <p>Tiểu sử chi tiết của Nhân vật 3...</p>
-</div>
+    <div class="quote-card" onclick="toggleBio('bio3')">
+      <img src="images/nhanvat3.jpg" alt="Nhân vật 3">
+      <p>"Một người bạn trung thành còn quý hơn vàng."</p>
+      <span>- Nhân vật 3</span>
+    </div>
+    <div id="bio3" class="bio" style="display: none;">
+      <p>Tiểu sử chi tiết của Nhân vật 3...</p>
+    </div>
 
-<div class="quote-card" onclick="toggleBio('bio4')">
-  <img src="images/nhanvat4.jpg" alt="Nhân vật 4">
-  <p>"Tình bạn chân thật là ánh sáng dẫn lối trong bóng tối."</p>
-  <span>- Nhân vật 4</span>
-</div>
-<div id="bio4" class="bio" style="display: none;">
-  <p>Tiểu sử chi tiết của Nhân vật 4...</p>
-</div>
+    <div class="quote-card" onclick="toggleBio('bio4')">
+      <img src="images/nhanvat4.jpg" alt="Nhân vật 4">
+      <p>"Tình bạn chân thật là ánh sáng dẫn lối trong bóng tối."</p>
+      <span>- Nhân vật 4</span>
+    </div>
+    <div id="bio4" class="bio" style="display: none;">
+      <p>Tiểu sử chi tiết của Nhân vật 4...</p>
+    </div>
+  </div>
+</section>
 
-        </div>
-      </section>
-    </section>
 
     <section id="news"><h2>Tin tức</h2><p>Nội dung tin tức...</p></section>
 
